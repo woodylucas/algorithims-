@@ -8,7 +8,9 @@
 }
 '
 */ 
+
+// factorial recursively 
 function factorial(num) {
-    if (num === 1) return 1;
-    return num * factorial(num - 1)
+    if (num === 1) return 1; // base case ---> stopping point. 
+    return num * factorial(num - 1) // a function that calls on itself. 
 }
