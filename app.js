@@ -123,3 +123,18 @@ function someRecursive(array, cb){
   // add whatever parameters you deem necessary - good luck!
   return someRecursive(array.slice(1), cb)
 }
+
+// get length of array w/o .lenght method 
+
+function getLength(array, count = 0) {
+    if(!array[count]) return count  // base case --> if array doesn't have a element return count of zero
+    count++ // increment counter up every time getLength is called.
+    return getLength(array, count) // recurison 
+    //if(array.indexOf(array[0]) <= 0) return total;
+  }
+  
+  // To check if you've completed the challenge, uncomment these console.logs!
+   console.log(getLength([1])); // -> 1
+   console.log(getLength([1, 2])); // -> 2
+   console.log(getLength([1, 2, 3, 4, 5])); // -> 5
+   console.log(getLength([])); // -> 0
