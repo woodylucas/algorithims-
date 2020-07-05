@@ -52,3 +52,39 @@ function collectOddRecursively(arr) {
     newArr = newArr.concat(collectOddRecursively(arr.slice(1)));
     return newArr;
 }
+
+// recursion power function 
+
+function power(base, exponent){
+    if(exponent === 0) return 1;
+    return base * power(base, exponent -  1);
+
+}
+
+// recurison productOfArray
+function productOfArray(array) {
+
+    if(array.length === 0) {
+        return 1; // base case
+    }
+    return array[0] * productOfArray(array.slice(1))
+
+}
+
+// recursive range  
+
+// psuedo code: accepts a number and adds all the numbers leading up to that number from 0 up as a total
+// function name: recursive range 
+//input: num
+
+function recursiveRange(num) {
+    if(num === 0) return 0; 
+    return num + recursiveRange(num - 1);
+};
+
+// fibonacci sequence 
+
+function fib(num) {
+    if(num < 3) return 1;
+    return fib(num - 1) + fib(num - 2); 
+}
