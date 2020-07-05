@@ -106,3 +106,20 @@ function isPalindrome(word) {
 
     return isPalindrome(word.substr(1, word.length - 2)) // extract the first charcter and check if the first character matches the last. 
 }
+
+const isOdd = val => val % 2 !== 0;
+
+// someRecursive([1,2,3,4], isOdd) // true
+// someRecursive([4,6,8,9], isOdd) // true
+// someRecursive([4,6,8], isOdd) // false
+// someRecursive([4,6,8], val => val > 10); // false
+// base: array.length === 0; return; 
+// return true if single value return true if array[0] === cb(array) return true; 
+function someRecursive(array, cb){
+    if(array.length === 0) return false; 
+    
+    if(cb(array[0])) return true
+    
+  // add whatever parameters you deem necessary - good luck!
+  return someRecursive(array.slice(1), cb)
+}
