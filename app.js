@@ -88,3 +88,11 @@ function fib(num) {
     if(num < 3) return 1;
     return fib(num - 1) + fib(num - 2); 
 }
+
+// reverse a string 
+function reverseString(str) {
+    if (str === '') return ''; // base case is a empty string
+    return reverseString(str.substring(1)) + str.charAt(0);
+}
+
+// Planidrome reads the same string forward and backward 
