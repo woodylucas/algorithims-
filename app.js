@@ -22,7 +22,7 @@ function collectOddValue(arr) {
     let result = [];
 
     function helper(helperInput) {
-        if (helperInput.length === 0) { // base case 
+        if (helperInput.length === 0) { // base case  if the array is at zero retutn 
             return; 
         }
         if (helperInput[0] % 2 !== 0) { // checking for odd elements.
@@ -141,17 +141,11 @@ function getLength(array, count = 0) {
 
 
    function flow(input, funcArray) {
-    let passdown = 0;
-    function helper(x, array) {
-      if(array.length === 0) {
-        return;
-      }
-      passdown = array[0](x)
-      console.log(`PASSDOWN: ${passdown}`)
-      flow(passdown, array.slice(1))
-    }
-     helper(input, funcArray)
-     return passdown;
+    if(funcArray.length === 0) return input // if the array's input is [] return input 
+    
+    let output = funcArray[0](input) // the output is the sum of the first element in array. The is passed down to through every element 
+    
+    return flow(output, funcArray.slice(1)); // we remove the element of the output that is passed through until we reach out base case. 
   }
   
   // To check if you've completed the challenge, uncomment this code!
