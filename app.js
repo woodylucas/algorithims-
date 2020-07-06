@@ -82,6 +82,14 @@ function recursiveRange(num) {
     return num + recursiveRange(num - 1);
 };
 
+// 6 + recursiveRange(5)
+// 5 + recursiceRange(4)
+// 4 + recusiveRange(3)
+// 3 + recusiveRange(2)
+// 2 + recursiveRange(1)
+// 1 + recursiceRange(0)
+// 0 returns 0
+
 // fibonacci sequence 
 
 function fib(num) {
