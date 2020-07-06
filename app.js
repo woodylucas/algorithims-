@@ -138,3 +138,26 @@ function getLength(array, count = 0) {
    console.log(getLength([1, 2])); // -> 2
    console.log(getLength([1, 2, 3, 4, 5])); // -> 5
    console.log(getLength([])); // -> 0
+
+
+   function flow(input, funcArray) {
+    let passdown = 0;
+    function helper(x, array) {
+      if(array.length === 0) {
+        return;
+      }
+      passdown = array[0](x)
+      console.log(`PASSDOWN: ${passdown}`)
+      flow(passdown, array.slice(1))
+    }
+     helper(input, funcArray)
+     return passdown;
+  }
+  
+  // To check if you've completed the challenge, uncomment this code!
+   function multiplyBy2(num) { return num * 2; } // 4
+   function add7(num) { return num + 7; } // 11
+   function modulo4(num) { return num % 4; } // 3
+   function subtract10(num) { return num - 10; } // - 7
+   const arrayOfFunctions = [multiplyBy2, add7, modulo4, subtract10];
+   console.log(flow(2, arrayOfFunctions)); // -> -7
