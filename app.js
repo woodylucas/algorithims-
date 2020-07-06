@@ -92,6 +92,7 @@ function fib(num) {
 // reverse a string 
 function reverseString(str) {
     if (str === '') return ''; // base case is a empty string
+    console.log(str)
     return reverseString(str.substring(1)) + str.charAt(0);
 }
 
@@ -134,10 +135,10 @@ function getLength(array, count = 0) {
   }
   
   // To check if you've completed the challenge, uncomment these console.logs!
-   console.log(getLength([1])); // -> 1
-   console.log(getLength([1, 2])); // -> 2
-   console.log(getLength([1, 2, 3, 4, 5])); // -> 5
-   console.log(getLength([])); // -> 0
+//    console.log(getLength([1])); // -> 1
+//    console.log(getLength([1, 2])); // -> 2
+//    console.log(getLength([1, 2, 3, 4, 5])); // -> 5
+//    console.log(getLength([])); // -> 0
 
 
    function flow(input, funcArray) {
@@ -149,9 +150,9 @@ function getLength(array, count = 0) {
   }
   
   // To check if you've completed the challenge, uncomment this code!
-   function multiplyBy2(num) { return num * 2; } // 4
-   function add7(num) { return num + 7; } // 11
-   function modulo4(num) { return num % 4; } // 3
-   function subtract10(num) { return num - 10; } // - 7
-   const arrayOfFunctions = [multiplyBy2, add7, modulo4, subtract10];
-   console.log(flow(2, arrayOfFunctions)); // -> -7
+//    function multiplyBy2(num) { return num * 2; } // 4
+//    function add7(num) { return num + 7; } // 11
+//    function modulo4(num) { return num % 4; } // 3
+//    function subtract10(num) { return num - 10; } // - 7
+//    const arrayOfFunctions = [multiplyBy2, add7, modulo4, subtract10];
+//    console.log(flow(2, arrayOfFunctions)); // -> -7
