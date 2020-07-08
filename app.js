@@ -94,14 +94,16 @@ function recursiveRange(num) {
 
 function fib(num) {
     if(num < 3) return 1;
+
     return fib(num - 1) + fib(num - 2); 
 }
 
 // reverse a string 
 function reverseString(str) {
-    if (str === '') return ''; // base case is a empty string
-    console.log(str)
-    return reverseString(str.substring(1)) + str.charAt(0);
+    if (str === '') return ''; // base case is to return an empty string
+
+    return reverseString(str.substring(1)) + str.charAt(0); // remove the first character until string is empty 
+    // add on the character as we bubble up.
 }
 
 // Planidrome reads the same string forward and backward 
@@ -164,3 +166,51 @@ function getLength(array, count = 0) {
 //    function subtract10(num) { return num - 10; } // - 7
 //    const arrayOfFunctions = [multiplyBy2, add7, modulo4, subtract10];
 //    console.log(flow(2, arrayOfFunctions)); // -> -7
+
+// flatten array recursivley 
+function flatten(array,){
+    return array.reduce((acc, curr) => acc.concat(Array.isArray(curr) ? flatten(curr) : curr), []);
+}
+
+// capitalize first character 
+
+function capitalizeFirst(array) {
+    if(array.length === 1) return [ array[0].charAt(0).toUpperCase() + array[0].substr(1)]  // base case: if there is one element that consist in the array. return the letter uppercase 
+
+    const result = capitalizeFirst(array.slice(0, -1)) // recursion 
+
+    const string = array.slice(array.length -1)[0].charAt(0).toUpperCase() + array.slice(array.length - 1)[0].substr(1)
+
+    result.push(string);
+
+    return result;
+
+}
+
+function capitalizeWords(array) {
+    if(array.length === 1) return [array[0].toUpperCase()]; // base case: array length is set to 1 element 
+    // return first element of array and uppercase it.
+
+    const result = capitalizeWords(array.slice(0, -1)) // recursion: remove last element of array array everytime function is called
+
+    const word = array.slice(array.length - 1)[0].toUpperCase() // 
+
+    result.push(word)
+
+    return result;
+
+}
+
+
+function nestedEvenSum (obj, sum = 0) {
+    // add whatever parameters you deem necessary - good luck!
+    for(let key in obj ) {
+        if(typeof obj[key] === 'object') { // of the object has a value pair of an object 
+            sum += nestedEvenSum(obj[key])
+        } else if (typeof obj[key] === 'number' && obj[key] % 2 === 0) { //
+            sum += obj[key];
+        }
+    };
+    return sum;
+  }
+  
