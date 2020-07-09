@@ -10,11 +10,24 @@
 */ 
 
 // factorial recursively 
-function factorial(num) {
-    if (num === 1) return 1; // base case ---> stopping point. 
-    return num * factorial(num - 1) // a function that calls on itself. 
-}
-
+function factorial(num){
+    if(num === 0) return 1
+    
+    return num * factorial(num - 1);
+ }
+ // factorial takes a number and multply decrementing down, to obtain the sum 
+ // psuedocode 
+ 
+ // INPUT: num 
+ 
+ // IF num is 0
+ 
+     // RETURN 1
+     
+ // RETURN num * factorial invoked - 1
+ 
+ 
+ 
 
 // helper recrusive functions
 function collectOddValue(arr) {
