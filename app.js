@@ -108,16 +108,28 @@ function reverseString(str) {
 
 // Planidrome reads the same string forward and backward 
 
-function isPalindrome(word) {
-    console.log(`What is word: ${word}`) // what is word 
-
-    if(word.length === 0 || word.length === 1) return true; // base case for Palindrome
+function isPalindrome(word){
+    // add whatever parameters you deem necessary - good luck!
+    if(word.length === 0 || word.length === 1) return true; 
     
-    if(word[0] !== word[word.length - 1]) return false; // if the first character doesn't match the last charcter return false;
-
-    return isPalindrome(word.substr(1, word.length - 2)) // extract the first charcter and check if the first character matches the last. 
-}
-
+    if(word[0] !== word[word.length - 1]) return false; 
+    
+    return isPalindrome(word.substr(1, word.length - 2))
+  }
+  
+  // INPUT: word 
+      
+  // PSEUDOCODE 
+  
+      // IF the length of the word is 0 or 1 
+      
+          // RETURN TRUE
+        
+      // IF the first character (word[0]) in word is not equal to the last character of word (word[word.length -1])
+      
+          // RETURN FALSE 
+          
+      // RETURN word extract from the first charcter, and the second to last character 
 const isOdd = val => val % 2 !== 0;
 
 // someRecursive([1,2,3,4], isOdd) // true
