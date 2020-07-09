@@ -47,3 +47,34 @@ function once(cb) {
     }
     return oncified;
   }
+
+  function after(num, cb, counter = 0) {
+    return function(...args) {
+      console.log(counter)
+      counter++ 
+      
+      if(counter >= num) return cb(...args);
+    }
+  }
+    
+  
+  const called = function(string) { return('hello ' + string); };
+  const afterCalled = after(3, called);
+  
+  // UNCOMMENT THESE LINES TO TEST YOUR WORK
+   console.log(afterCalled('world')); // -> undefined is printed
+   console.log(afterCalled('world')); // -> undefined is printed
+   console.log(afterCalled('world')); // -> 'hello world' is printed
+  
+  // PSEUDOCODE 
+  
+  // DECLARE a function after
+  
+  // INPUT: num, cb, counter = 0
+  
+  // INCREMENT COUNTER 
+  
+  // IF COUNTER >= num 
+  
+      // RETURN cb invoked
+  
