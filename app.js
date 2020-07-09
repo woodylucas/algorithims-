@@ -405,7 +405,6 @@ function nestedEvenSum (obj, sum = 0) {
     d: 1,
     e: {e: {e: 2}, ee: 'car'}
   };
-  console.log(obj1)
   nestedEvenSum(obj1); // 6
   nestedEvenSum(obj2); // 10
   
@@ -435,21 +434,37 @@ function nestedEvenSum (obj, sum = 0) {
     
 }
 
+
+
+
+function collectStrings(obj, newArr = []) {
+  
+    
+    for (let key in obj) {
+       
+        if(typeof( obj[key]) === 'string' ) {
+           
+            newArr.push(obj[key])
+       
+        } else if (typeof obj[key] === 'object') {
+            
+            newArr = newArr.concat(collectStrings(obj[key]))
+        
+        }
+    }
+    return newArr;
+}
+
 // PSUEDOCODE 
 
+// CREATE an empty array: newArr
 
-// INPUT: obj 
+// CREATE a for in loop to iterate through the object 
 
-// CREATE a variable name: newObj 
-
-// USE for in loop to iterate throught the object. 
-
-// IF TYPEOF obj[key] is a number 
-
-    // RETURN newObj and add that number in as a string
+// IF the value of the key is a string
     
-// ELSE IF typeof object is an object 
+    // RETURN Push value into array. 
     
-    // RETURN newObj with the invocation as its value 
-    
-// RETURN newObj
+// ELSE collectStrings(obj[key])
+
+// RETURN Empty Array: newArr.
