@@ -33,4 +33,17 @@ function once(cb, output = []) {
   
           
   
-  
+  // Alternate way
+function once(cb) {
+    let hasBeenCalled = false;
+    let cachedResult; 
+    
+    function oncified(...args) {
+      if(!hasBeenCalled) {
+        cachedResult = cb(...args)
+        hasBeenCalled = true;
+      }
+      return cachedResult;
+    }
+    return oncified;
+  }
