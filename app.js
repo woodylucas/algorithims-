@@ -174,18 +174,41 @@ function flatten(array,){
 
 // capitalize first character 
 
-function capitalizeFirst(array) {
-    if(array.length === 1) return [ array[0].charAt(0).toUpperCase() + array[0].substr(1)]  // base case: if there is one element that consist in the array. return the letter uppercase 
-
-    const result = capitalizeFirst(array.slice(0, -1)) // recursion 
-
-    const string = array.slice(array.length -1)[0].charAt(0).toUpperCase() + array.slice(array.length - 1)[0].substr(1)
-
-    result.push(string);
-
+function capitalizeWords (arr) {
+    // add whatever parameters you deem necessary - good luck!
+    
+    if (arr.length === 1) return [ arr[0].toUpperCase() ];
+    
+    const result = capitalizeWords( arr.slice(0, -1) ); 
+    
+    let elem = arr.slice(arr.length - 1 )[0].toUpperCase();
+    
+    result.push(elem)
+    
     return result;
+  }
+  
+  // let words = ['i', 'am', 'learning', 'recursion'];
+  // capitalizedWords(words); // ['I', 'AM', 'LEARNING', 'RECURSION']
+  
+  
+  // PSUEDOCODE 
+  
+  // INPUT: arr
+  
+  // IF arr has one element 
+  
+      // RETURN an element and UPPERCASE the specific element in the new array. 
+  
+  // VARIABLE name: CONST RESULT ---> remove the last element from the array of words and copy the array 
+  
+  // VARIABLE name: ELEM ---> grab the last element from the array, and UPPERCASE it. 
+  
+  // PUSH elem into the result array. 
+  
+  // RETURN result;
 
-}
+  
 
 function capitalizeWords(array) {
     if(array.length === 1) return [array[0].toUpperCase()]; // base case: array length is set to 1 element 
@@ -213,4 +236,27 @@ function nestedEvenSum (obj, sum = 0) {
     };
     return sum;
   }
+
+  var obj1 = {
+    outer: 2,
+    obj: {
+      inner: 2,
+      otherObj: {
+        superInner: 2,
+        notANumber: true,
+        alsoNotANumber: "yup"
+      }
+    }
+  }
+  
+  var obj2 = {
+    a: 2,
+    b: {b: 2, bb: {b: 3, bb: {b: 2}}},
+    c: {c: {c: 2}, cc: 'ball', ccc: 5},
+    d: 1,
+    e: {e: {e: 2}, ee: 'car'}
+  };
+  console.log(obj1)
+  nestedEvenSum(obj1); // 6
+  nestedEvenSum(obj2); // 10
   
