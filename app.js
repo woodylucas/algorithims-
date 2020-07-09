@@ -77,18 +77,22 @@ function productOfArray(array) {
 // function name: recursive range 
 //input: num
 
-function recursiveRange(num) {
-    if(num === 0) return 0; 
+function recursiveRange(num){
+    if(num === 0) return 0;
+    
     return num + recursiveRange(num - 1);
-};
-
-// 6 + recursiveRange(5)
-// 5 + recursiceRange(4)
-// 4 + recusiveRange(3)
-// 3 + recusiveRange(2)
-// 2 + recursiveRange(1)
-// 1 + recursiceRange(0)
-// 0 returns 0
+ }
+ 
+ // INPUT: num 
+ // PSUEDOCODE 
+ 
+ // IF num is 0 
+ 
+     // RETURN 0  ---> base case 
+     
+ // RETURN num + recursiveRange(num - 1) ---> recursively.
+ 
+ 
 
 // fibonacci sequence 
 
