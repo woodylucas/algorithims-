@@ -68,11 +68,17 @@ function collectOddRecursively(arr) {
 
 // recursion power function 
 
-function power(base, exponent){
-    if(exponent === 0) return 1;
-    return base * power(base, exponent -  1);
-
+function power(base, exp){
+    if(exp === 0) return 1
+    
+    return base * power(base, exp - 1);
 }
+
+// pseudocode 
+// input: (base, exp) return power of of the base exponent 
+// IF exp is equal to 0.
+    // RETURN  1
+// RETURN  power of base.  OF is to multiply.  
 
 // recurison productOfArray
 function productOfArray(arr) {
