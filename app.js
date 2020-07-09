@@ -168,9 +168,36 @@ function getLength(array, count = 0) {
 //    console.log(flow(2, arrayOfFunctions)); // -> -7
 
 // flatten array recursivley 
-function flatten(array,){
-    return array.reduce((acc, curr) => acc.concat(Array.isArray(curr) ? flatten(curr) : curr), []);
-}
+function flatten(arr){
+    // add whatever parameters you deem necessary - good luck!
+    return ( 
+        arr.reduce( (acc, curr) => acc.concat(Array.isArray(curr) ? flatten(curr) : curr ), []) 
+        )
+        
+  }
+  
+  // flatten([1, 2, 3, [4, 5] ]) // [1, 2, 3, 4, 5]
+  // flatten([1, [2, [3, 4], [[5]]]]) // [1, 2, 3, 4, 5]
+  // flatten([[1],[2],[3]]) // [1,2,3]
+  // flatten([[[[1], [[[2]]], [[[[[[[3]]]]]]]]]]) // [1,2,3
+  
+  // INPUT: arr
+  
+  // PSEUDOCODE 
+  
+      // USE a reducer with acc, curr, & [] as arguments [] ---> sets a new array as the initial value.
+      
+          //  Take the current acc and MERGE with with the curr (current value). USE concat to merge  
+          
+          //  IF the curr(current element) is an Array 
+          
+              // RETURN the flatten(curr) in the new array.
+              
+          // ELSE 
+          
+              // RETURN currentElement 
+              
+          
 
 // capitalize first character 
 
