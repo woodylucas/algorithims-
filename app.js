@@ -99,13 +99,38 @@ function fib(num) {
 }
 
 // reverse a string 
-function reverseString(str) {
-    if (str === '') return ''; // base case is to return an empty string
+function reverse(str){
+    // add whatever parameters you deem necessary - good luck!
+    if(str === '') return '';
+    
+    return reverse(str.substr(1)) + str.charAt(0);
+    
+  }
+  
+  // reverse('liam') return 'liam'
+  // 'liam'.substr(1) = l + 'mai'
+  //   'iam'.substr(1) = i 'ma'
+  //     'am'.substr(1) =  a + 'm'
+  //       'm'.substr(1) =  m + ''
+  //       '' === '' + charAt(0) = ''
+  
+  // reverse('awesome') // 'emosewa'
+  // reverse('rithmschool') // 'loohcsmhtir'
+  
+  // INPUT: str
+  
+      // PSEUDOCODE
+  
+  // IF str is equal to  ''
+      
+      // RETURN ''
+      
+  // RETURN str by removing every the first character unilt the condition is met  --> RECURSIVELY 
+      
+      // USE substr to extract the first charcter until the string is empty 
+      // ADD the string onto the new string. 
 
-    return reverseString(str.substring(1)) + str.charAt(0); // remove the first character until string is empty 
-    // add on the character as we bubble up.
-}
-
+      
 // Planidrome reads the same string forward and backward 
 
 function isPalindrome(word){
@@ -130,6 +155,7 @@ function isPalindrome(word){
           // RETURN FALSE 
           
       // RETURN word extract from the first charcter, and the second to last character 
+
 const isOdd = val => val % 2 !== 0;
 
 // someRecursive([1,2,3,4], isOdd) // true
