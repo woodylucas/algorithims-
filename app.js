@@ -409,3 +409,47 @@ function nestedEvenSum (obj, sum = 0) {
   nestedEvenSum(obj1); // 6
   nestedEvenSum(obj2); // 10
   
+  function stringifyNumbers(obj) {
+    
+    const newObj = {}; 
+    
+    for(let key in obj) {
+        
+        if(typeof obj[key] === 'number') {
+            
+            newObj[key] = obj[key].toString();
+        
+            
+        } else if ( typeof obj[key] === 'object' && !Array.isArray(obj[key]) ) {
+            
+            newObj[key] = stringifyNumbers(obj[key])
+            
+        } else {
+            
+            newObj[key] = obj[key]
+        }
+        
+    }
+    
+    return newObj;
+    
+}
+
+// PSUEDOCODE 
+
+
+// INPUT: obj 
+
+// CREATE a variable name: newObj 
+
+// USE for in loop to iterate throught the object. 
+
+// IF TYPEOF obj[key] is a number 
+
+    // RETURN newObj and add that number in as a string
+    
+// ELSE IF typeof object is an object 
+    
+    // RETURN newObj with the invocation as its value 
+    
+// RETURN newObj
