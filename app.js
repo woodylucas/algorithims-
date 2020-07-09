@@ -210,19 +210,42 @@ function capitalizeWords (arr) {
 
 
 
-function capitalizeWords(array) {
-    if(array.length === 1) return [array[0].toUpperCase()]; // base case: array length is set to 1 element 
-    // return first element of array and uppercase it.
-
-    const result = capitalizeWords(array.slice(0, -1)) // recursion: remove last element of array array everytime function is called
-
-    const word = array.slice(array.length - 1)[0].toUpperCase() // 
-
-    result.push(word)
-
-    return result;
-
-}
+  function capitalizeFirst (arr) {
+    // add whatever parameters you deem necessary - good luck!
+    if(arr.length === 1) return [ arr[0].charAt(0).toUpperCase() + arr[0].substr(1) ];
+    
+    const result = capitalizeFirst(arr.slice(0, -1)); 
+    
+    let string = arr.slice(arr.length - 1)[0].charAt(0).toUpperCase() + arr.slice(arr.length - 1)[0].substr(1); 
+    
+    result.push(string);
+    
+    return result; 
+    
+  }
+  
+  // capitalizeFirst(['car','taco','banana']); // ['Car','Taco','Banana']
+  
+      // PSUEDOCODE 
+  
+  // INPUT: arr
+  
+      // IF arr length is 1 
+      
+              // RETURN a new array w/ 1st element of array & first letter of that element. We will UPPERCASE the letter 
+              // remove the first letter and add the left of word to the UPPERCASE letter.
+              
+      // CREATE Variable name result =  capitalizeFirst() invoked with a slice method removing the last element in the array and making a new array  0, -1
+      
+      // CREATE a string that takes the last element of the array extract the first letter, and add it onto a string with the first letter extracted from the last element. 
+      
+      // PUSH result onto array
+      
+      // RETURN result
+      
+      
+  
+  
 
 
 function nestedEvenSum (obj, sum = 0) {
