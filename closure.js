@@ -78,3 +78,28 @@ function once(cb) {
   
       // RETURN cb invoked
   
+      function delay(cb, time) {
+  
+        function waitForIt() {
+          
+          return setTimeout(cb, time)
+        }
+        return waitForIt;
+      }
+      
+      // UNCOMMENT THE CODE BELOW TO TEST DELAY
+      let count = 0;
+      const delayedFunc = delay(() => count++, 1000);
+      delayedFunc();
+      console.log(count); 												 // should print '0'
+      setTimeout(() => console.log(count), 1000); // should print '1' after 1 second
+      
+      // PSEUDOCODE 
+      
+      // DECLARE a function declaration: delay
+      
+      // INPUT: cb, time
+      
+              // RETURN declare a function name: waitForIt()
+      
+                      // RETURN cb w/ setTimout()
