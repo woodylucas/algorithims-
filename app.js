@@ -126,15 +126,30 @@ const isOdd = val => val % 2 !== 0;
 // someRecursive([4,6,8], val => val > 10); // false
 // base: array.length === 0; return; 
 // return true if single value return true if array[0] === cb(array) return true; 
-function someRecursive(array, cb){
-    if(array.length === 0) return false; 
+function someRecursive(arr, cb){
+    // add whatever parameters you deem necessary - good luck!
     
-    if(cb(array[0])) return true
+    if(arr.length === 0) return false;
     
-  // add whatever parameters you deem necessary - good luck!
-  return someRecursive(array.slice(1), cb)
-}
-
+    if(cb(arr[0])) return true;
+    
+    return someRecursive(arr.slice(1), cb);
+    
+  }
+  
+  // INPUT: arr & cb 
+  
+  // PSUEDOCODE 
+  
+  // IF arr length is 0 
+      
+      // RETURN false 
+      
+  // IF cb invoked with array of first element 
+  
+      // RETURN true 
+      
+  // RETURN someRecursive() invoked with array removing first element everytime its invoked 
 // get length of array w/o .lenght method 
 
 function getLength(array, count = 0) {
