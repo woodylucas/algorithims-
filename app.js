@@ -208,7 +208,7 @@ function capitalizeWords (arr) {
   
   // RETURN result;
 
-  
+
 
 function capitalizeWords(array) {
     if(array.length === 1) return [array[0].toUpperCase()]; // base case: array length is set to 1 element 
