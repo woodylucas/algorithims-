@@ -92,11 +92,23 @@ function recursiveRange(num) {
 
 // fibonacci sequence 
 
-function fib(num) {
-    if(num < 3) return 1;
-
-    return fib(num - 1) + fib(num - 2); 
-}
+function fib( num ) {
+    // add whatever parameters you deem necessary - good luck!  
+    if( num < 3 ) return 1
+    
+    return fib( num - 1 ) + fib( num - 2 );
+  }
+  
+  // INPUT: num 
+  
+  // PSUEDOCODE
+  
+  // IF num < 3
+  
+      // RETURN 1 
+      
+  // RETURN num - 1 + num - 2 ---> return the sum if nth number 
+  
 
 // reverse a string 
 function reverse(str){
@@ -130,7 +142,7 @@ function reverse(str){
       // USE substr to extract the first charcter until the string is empty 
       // ADD the string onto the new string. 
 
-      
+
 // Planidrome reads the same string forward and backward 
 
 function isPalindrome(word){
