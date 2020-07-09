@@ -62,15 +62,26 @@ function power(base, exponent){
 }
 
 // recurison productOfArray
-function productOfArray(array) {
-
-    if(array.length === 0) {
-        return 1; // base case
-    }
-    return array[0] * productOfArray(array.slice(1))
-
+function productOfArray(arr) {
+    if(arr.length === 0) return 1
+    
+    return arr[0] * productOfArray( arr.slice(1) );
 }
 
+// productOfArray([1,2,3]) // 6
+// productOfArray([1,2,3,10]) // 60
+
+// PSUEDOCODE 
+
+// INPUT : arr
+
+// IF arr length is empty 
+
+    // RETURN 1 --> to use as a multiplier 
+    
+// RETURN first element of array multiply productOfArray() by removing a single element when invoked. 
+    
+    // USE slice method.
 // recursive range  
 
 // psuedo code: accepts a number and adds all the numbers leading up to that number from 0 up as a total
