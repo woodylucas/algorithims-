@@ -48,6 +48,14 @@ function once(cb) {
     return oncified;
   }
 
+
+
+
+
+
+
+
+
   function after(num, cb, counter = 0) {
     return function(...args) {
       console.log(counter)
@@ -206,7 +214,34 @@ function cycleIterator(arr, i = 0) {
       // INPUT: rest parameter ...args 
       
       // RETURN object w/ date as key & value as todays date(human readable) not including time , output as key, and func() as value 
+
+
       
-      
-      
-      // 
+// PSEUDOCODE 
+// CREATE a function declaration: censor
+// Input: none. 
+// RETURN a function declaration: replaceWith()
+// INPUT: at least one string ---> rest parameters (...args) collection of arguments. 
+// IF two strings are given
+	// RETURN as pair. 
+// IF one string is given.
+	// RETURN same string, but REPLACE the first string saved pair with second string pair 
+
+function censor(str1 = [], str2 = []) {
+  function replaceWith(...args) {
+    if(args.length === 2) {
+      str1.push(args[0]);
+      str2.push(args[1]);
+    }
+    if(args.length === 1) {
+      let newString = args[0];
+      for(let i = 0; i < str1.length; i++) {
+        let input = new RegExp(str1[i], 'g'); 
+        let output = new RegExp(str2[i]);
+        newString = (newString.replace(input, output)).replace(/[\/]/g, '')
+      }
+      return newString
+    }
+  }
+  return replaceWith; 
+};
