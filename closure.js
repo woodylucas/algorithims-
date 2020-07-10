@@ -103,3 +103,54 @@ function once(cb) {
               // RETURN declare a function name: waitForIt()
       
                       // RETURN cb w/ setTimout()
+
+
+function cycleIterator(arr, i = 0) {
+  function inside() {
+    const increment = arr[i++]
+    if(i >= arr.length) i = 0;
+    return increment 
+  }
+  return inside; 
+}
+
+// Uncomment these to check your work!
+const threeDayWeekend = ['Fri', 'Sat', 'Sun'];
+const getDay = cycleIterator(threeDayWeekend);
+console.log(getDay()); // should log: 'Fri'
+console.log(getDay()); // should log: 'Sat'
+console.log(getDay()); // should log: 'Sun'
+console.log(getDay()); // should log: 'Fri'
+
+// PSEUDOCODE 
+
+// DECLARE a function: cycleIterator 
+
+// INPUT: arr 
+// RETURN a function declaration: inside. 
+// Days should be shown on invocation. 
+
+function cycleIterator(arr, i = 0) {
+    function inside() {
+      const increment = arr[i++]
+      if(i >= arr.length) i = 0;
+      return increment 
+    }
+    return inside; 
+  }
+  
+  // Uncomment these to check your work!
+  const threeDayWeekend = ['Fri', 'Sat', 'Sun'];
+  const getDay = cycleIterator(threeDayWeekend);
+  console.log(getDay()); // should log: 'Fri'
+  console.log(getDay()); // should log: 'Sat'
+  console.log(getDay()); // should log: 'Sun'
+  console.log(getDay()); // should log: 'Fri'
+  
+  // PSEUDOCODE 
+  
+  // DECLARE a function: cycleIterator 
+  
+  // INPUT: arr 
+      // RETURN a function declaration: inside. 
+      // Days should be shown on invocation. 
