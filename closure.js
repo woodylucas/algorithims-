@@ -216,3 +216,30 @@ function cycleIterator(arr, index = 0) {
 // SET index equal to zero --> So it's basically used as a restarting point.
 // RETURN incrementor 
 
+
+function saveOutput(func, str, obj = {}) {
+  let password = str;
+  return function(...args) {
+  
+    let keycode = args[0];
+    
+    if(password !== keycode) {
+      func(...args)
+      return obj[args] = func(...args)
+    } else {
+      return obj;
+    }
+    
+  }
+}
+
+// PSEUDOCODE
+// CREATE a function declaration: saveOutput
+// INPUT: func ---> will accept one argument. string
+// RETURN a function declaration ---> pass-in function. 
+// INPUT: multiple argmuments ---> rest operator (...args)
+// IF string !== args
+// func(args) RETURN obj[args] = func(args)
+// ELSE 
+// RETURN obj;
+
