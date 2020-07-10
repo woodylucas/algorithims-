@@ -154,3 +154,27 @@ function cycleIterator(arr, i = 0) {
   // INPUT: arr 
       // RETURN a function declaration: inside. 
       // Days should be shown on invocation. 
+
+      function defineFirstArg(func, arg) {
+        function inside(...args) {
+          return func(arg, ...args)
+        }
+        return inside;
+      }
+      
+      // Uncomment these to check your work!
+      const subtract = function(big, small) { return big - small; };
+      const subFrom20 = defineFirstArg(subtract, 20);
+      console.log(subFrom20(5)); // should log: 15
+      
+      // PSEUDOCODE 
+      
+      // DECLARE a function: defineFirstArg
+      
+      // INPUT: func, arg
+      
+      // RETURN function declaration 
+      
+      // INPUT: rest parameter ...args 
+      
+      // RETURN function 
