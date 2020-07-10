@@ -178,3 +178,35 @@ function cycleIterator(arr, i = 0) {
       // INPUT: rest parameter ...args 
       
       // RETURN function 
+
+      function dateStamp(func, obj = {} ) {
+  
+        return function(...args) {
+          const date = new Date().toDateString()
+          obj.date = date
+          obj.output = func(...args)
+          return obj;
+        }
+        
+      }
+      
+      // Uncomment these to check your work!
+       const stampedMultBy2 = dateStamp(n => n * 2);
+       console.log(stampedMultBy2(4)); // should log: { date: (today's date), output: 8 }
+       console.log(stampedMultBy2(6)); // should log: { date: (today's date), output: 12 }
+      
+      // PSEUDOCODE 
+      
+      // CREATE a function declaration: dateStamp 
+      
+      // INPUT: func 
+      
+      // RETURN a function 
+      
+      // INPUT: rest parameter ...args 
+      
+      // RETURN object w/ date as key & value as todays date(human readable) not including time , output as key, and func() as value 
+      
+      
+      
+      // 
