@@ -112,57 +112,6 @@ function once(cb) {
       
                       // RETURN cb w/ setTimout()
 
-
-function cycleIterator(arr, i = 0) {
-  function inside() {
-    const increment = arr[i++]
-    if(i >= arr.length) i = 0;
-    return increment 
-  }
-  return inside; 
-}
-
-// Uncomment these to check your work!
-const threeDayWeekend = ['Fri', 'Sat', 'Sun'];
-const getDay = cycleIterator(threeDayWeekend);
-console.log(getDay()); // should log: 'Fri'
-console.log(getDay()); // should log: 'Sat'
-console.log(getDay()); // should log: 'Sun'
-console.log(getDay()); // should log: 'Fri'
-
-// PSEUDOCODE 
-
-// DECLARE a function: cycleIterator 
-
-// INPUT: arr 
-// RETURN a function declaration: inside. 
-// Days should be shown on invocation. 
-
-function cycleIterator(arr, i = 0) {
-    function inside() {
-      const increment = arr[i++]
-      if(i >= arr.length) i = 0;
-      return increment 
-    }
-    return inside; 
-  }
-  
-  // Uncomment these to check your work!
-  const threeDayWeekend = ['Fri', 'Sat', 'Sun'];
-  const getDay = cycleIterator(threeDayWeekend);
-  console.log(getDay()); // should log: 'Fri'
-  console.log(getDay()); // should log: 'Sat'
-  console.log(getDay()); // should log: 'Sun'
-  console.log(getDay()); // should log: 'Fri'
-  
-  // PSEUDOCODE 
-  
-  // DECLARE a function: cycleIterator 
-  
-  // INPUT: arr 
-      // RETURN a function declaration: inside. 
-      // Days should be shown on invocation. 
-
       function defineFirstArg(func, arg) {
         function inside(...args) {
           return func(arg, ...args)
@@ -216,7 +165,7 @@ function cycleIterator(arr, i = 0) {
       // RETURN object w/ date as key & value as todays date(human readable) not including time , output as key, and func() as value 
 
 
-      
+
 // PSEUDOCODE 
 // CREATE a function declaration: censor
 // Input: none. 
@@ -245,3 +194,25 @@ function censor(str1 = [], str2 = []) {
   }
   return replaceWith; 
 };
+
+function cycleIterator(arr, index = 0) {
+  return function() {
+    let incrementor = arr[index++];
+    
+    if(index >= arr.length) index = 0;
+    
+    return incrementor; 
+  }
+}
+
+// PSEUDOCODE 
+// DECLARE a function: cycleIterator 
+// INPUT: arr 
+// DECLARE a variable: index set to 0.
+// USE index as an incremementor. arr[index++]
+// RETURN a function declaration.
+// RETURN a specfic element will call on it's invocation. Ex. () -> arr[0]
+// IF the index is greater than or equal to the length of the array. 
+// SET index equal to zero --> So it's basically used as a restarting point.
+// RETURN incrementor 
+
