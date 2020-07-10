@@ -1,6 +1,8 @@
-let person = new Object(); // create a new object 
+// object methods 
 
-person.name = 'Liam'
-person.eyeColor = 'Black'
-person.age = 2;
-
+const person = {
+    jake: 22,
+    josh: 26,
+    tim: 28, 
+    korey: 20,
+}
