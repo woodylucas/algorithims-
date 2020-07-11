@@ -26,7 +26,36 @@ function validAnagram(str1, str2){
     }
     return true;
    
-    
-    
   }
+
+
+  // PSEUDOCODE 
+
+  // CREATE a function declaration: sumZero
+  // INPUT: arr --->  sorted integers 
+  // FIND the elements that = 0 
+  // RETURN the pair in new array with the elements that equal zero. 
+  // CREATE a while loop 
+  // have a variable that starts on the left and a varibale that starts from the right. 
+  // WHILE left is less than right increment left decrement right; 
+  // IF left + right  === 0 
+  // RETURN [left, right];
+
+  function sumZero(arr) {
+      
+      let left = 0
+      let right = arr.length - 1 
+
+      while(left < right) {
+          let sum = arr[left] + arr[right]
+          if (sum === 0) {
+              [ arr[left], arr[right] ];
+          } else if (sum > 0) {
+              right--;
+          } else {
+              left++;
+          }
+      }
+  }
+
 
