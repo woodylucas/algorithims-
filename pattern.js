@@ -106,6 +106,8 @@ function validAnagram(str1, str2){
           // RETURN false; 
       // IF the values of both object do not match return false. 
   // RETURN true. 
+
+  // Pointers 
   
   function areThereDuplicates(...args) {
     // good luck. (supply any arguments you deem necessary.)
