@@ -73,6 +73,19 @@ function validAnagram(str1, str2){
     return i + 1;
   }
 
+
+  / PSEUDOCODE 
+  
+  // DECLARE two constant variables name:  arr1, arr2  
+      // SET both variables equal to num1, and num2 but convert both to a STRINGS of arrays.
+  // DECLARE two const variable name: counter1; counter2 set them both to empty objects.
+  // CREATE a loop to iterate through both arrays: USE the empty object to return the number as its key, and the number of its occurence as its value.
+  // CREATE a loop to iterate through the object to obtain the key and value pairs.
+      // IF the key isn't present in the other counter 2 
+          // RETURN false; 
+      // IF the values of both object do not match return false. 
+  // RETURN true. 
+
   function sameFrequency(num1, num2){
     // good luck. Add any arguments you deem necessary.
     const arr1 = num1.toString().split('');
@@ -95,38 +108,10 @@ function validAnagram(str1, str2){
     return true;
   }
   
-  // PSEUDOCODE 
-  
-  // DECLARE two constant variables name:  arr1, arr2  
-      // SET both variables equal to num1, and num2 but convert both to a STRINGS of arrays.
-  // DECLARE two const variable name: counter1; counter2 set them both to empty objects.
-  // CREATE a loop to iterate through both arrays: USE the empty object to return the number as its key, and the number of its occurence as its value.
-  // CREATE a loop to iterate through the object to obtain the key and value pairs.
-      // IF the key isn't present in the other counter 2 
-          // RETURN false; 
-      // IF the values of both object do not match return false. 
-  // RETURN true. 
 
   // Pointers 
-  
-  function areThereDuplicates(...args) {
-    // good luck. (supply any arguments you deem necessary.)
-    args.sort((a, b) => a > b);
-    
-    let firstElem = 0; 
-    let nextElem = 1;
-    
-    while(nextElem < args.length) {
-        if(args[firstElem] === args[nextElem]) {
-            return true;
-        }
-        firstElem++;
-        nextElem++;
-    }
-    return false;
-  }
 
-  // PSEUDOCODE 
+    // PSEUDOCODE 
 
 // multple arguments to be passed in used REST paraemeter --> return an array of arguments. (...args)
 
@@ -145,4 +130,61 @@ function validAnagram(str1, str2){
 // INCREMENT firstElem DECREMENT nextElem 
 
 // RETURN false
+  
+  function areThereDuplicates(...args) {
+    // good luck. (supply any arguments you deem necessary.)
+    args.sort((a, b) => a > b);
+    
+    let firstElem = 0; 
+    let nextElem = 1;
+    
+    while(nextElem < args.length) {
+        if(args[firstElem] === args[nextElem]) {
+            return true;
+        }
+        firstElem++;
+        nextElem++;
+    }
+    return false;
+  }
 
+
+
+
+
+  
+  // PSEUDOCODE 
+  
+  // INPUT: arr, target --> is the average of the PAIR in the array
+  
+  // EDGE case --> if array's length is 0 RETURN FALSE.
+  
+  // to obtain average pair use two pointers. ONE starting from the left, and one starting from the right.
+  
+  // CREATE two variables left is set to 0, and right is set to arr.length -1; 
+  
+  // iterate w/ a WHILE Loop: condition is left < right; 
+  
+  // CREATE a variable avg: arr[left] + arr[right] / 2
+  
+  // IF avg === target 
+  // RETURN true 
+  // INCREMENT left && DECREMENT right.
+  
+  function averagePair(arr, target){
+    // add whatever parameters you deem necessary - good luck!
+    if(arr.length === 0) return false;
+    
+    let left = 0;
+    let right = arr.length -1;
+    
+    while(left < right) {
+        let avg = arr[left] + arr[right] / 2;
+        if(avg === target) {
+            return true;
+        }
+        left++;
+        right--;
+    }
+    return false;
+  }
