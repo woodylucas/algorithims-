@@ -73,4 +73,74 @@ function validAnagram(str1, str2){
     return i + 1;
   }
 
+  function sameFrequency(num1, num2){
+    // good luck. Add any arguments you deem necessary.
+    const arr1 = num1.toString().split('');
+    const arr2 = num2.toString().split(''); 
+    
+    const counter1 = {};
+    const counter2 = {}; 
+    
+    for(const elem of arr1) {
+        counter1[elem] = (counter1[elem] || 0) + 1;
+    }
+    for(const elem of arr2) {
+        counter2[elem] = (counter2[elem]|| 0 ) + 1;
+    }
+    
+    for(const key in counter2) {
+        if (!(key in counter1))  return false; 
+        if (counter1[key] !== counter2[key]) return false;
+    }
+    return true;
+  }
+  
+  // PSEUDOCODE 
+  
+  // DECLARE two constant variables name:  arr1, arr2  
+      // SET both variables equal to num1, and num2 but convert both to a STRINGS of arrays.
+  // DECLARE two const variable name: counter1; counter2 set them both to empty objects.
+  // CREATE a loop to iterate through both arrays: USE the empty object to return the number as its key, and the number of its occurence as its value.
+  // CREATE a loop to iterate through the object to obtain the key and value pairs.
+      // IF the key isn't present in the other counter 2 
+          // RETURN false; 
+      // IF the values of both object do not match return false. 
+  // RETURN true. 
+  
+  function areThereDuplicates(...args) {
+    // good luck. (supply any arguments you deem necessary.)
+    args.sort((a, b) => a > b);
+    
+    let firstElem = 0; 
+    let nextElem = 1;
+    
+    while(nextElem < args.length) {
+        if(args[firstElem] === args[nextElem]) {
+            return true;
+        }
+        firstElem++;
+        nextElem++;
+    }
+    return false;
+  }
+
+  // PSEUDOCODE 
+
+// multple arguments to be passed in used REST paraemeter --> return an array of arguments. (...args)
+
+// SORT the args array  in accending order 
+
+// DECLARE to variables firstElem, and nextElem: firstElem = 0 nextElem = 1 
+
+// iterate through args with a WHILE loop: While next < the length of the array.
+
+// IF args[firstElem] is equal to args[nextElem] 
+
+    // RETURN true; 
+
+// ELSE 
+
+// INCREMENT firstElem DECREMENT nextElem 
+
+// RETURN false
 
