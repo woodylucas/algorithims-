@@ -290,3 +290,18 @@ function rating(arrOfFuncs, value, total = 0, truthyArr = []) {
   // console.log(rating(checks, 64)); // should log: 100
   // console.log(rating(checks, 66)); // should log: 75
   
+
+  // Challenge 20
+function pipe(arrOfFuncs, value) {
+    if(arrOfFuncs.length === 0) return value;
+    let output = arrOfFuncs[0](value);
+    return pipe(arrOfFuncs.slice(1), output)
+  }
+  
+  // /*** Uncomment these to check your work! ***/
+  // const capitalize = str => str.toUpperCase();
+  // const addLowerCase = str => str + str.toLowerCase();
+  // const repeat = str => str + str;
+  // const capAddlowRepeat = [capitalize, addLowerCase, repeat];
+  // console.log(pipe(capAddlowRepeat, 'cat')); // should log: 'CATcatCATcat'
+  
