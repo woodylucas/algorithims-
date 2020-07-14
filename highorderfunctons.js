@@ -304,4 +304,24 @@ function pipe(arrOfFuncs, value) {
   // const repeat = str => str + str;
   // const capAddlowRepeat = [capitalize, addLowerCase, repeat];
   // console.log(pipe(capAddlowRepeat, 'cat')); // should log: 'CATcatCATcat'
+
+  function highestFunc(objOfFuncs, subject, newObj = {}) {
+    let input;
+    let max;
+    for(const key in objOfFuncs) {
+      newObj[key] = objOfFuncs[key](subject)
+      max = Math.max.apply(null, Object.values(newObj))
+      if(max === newObj[key]) input = key;
+     // if(newObj[key] === Math.max(newObj[key])) input = key
+    }
+    return input;
+  }
   
+  // /*** Uncomment these to check your work! ***/
+  const groupOfFuncs = {};
+  // groupOfFuncs.double = n => n * 2;
+  // groupOfFuncs.addTen = n => n + 10;
+  // groupOfFuncs.inverse = n => n * -1;
+  // console.log(highestFunc(groupOfFuncs, 5)); // should log: 'addTen'
+  // console.log(highestFunc(groupOfFuncs, 11)); // should log: 'double'
+  // console.log(highestFunc(groupOfFuncs, -20)); // should log: 'inverse'
