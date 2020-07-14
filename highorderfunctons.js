@@ -355,3 +355,27 @@ function pipe(arrOfFuncs, value) {
 // /*** Uncomment these to check your work! ***/
 // console.log(combineOperations(0, [add100, divByFive, multiplyByThree])); // Should output 60 -->
 // console.log(combineOperations(0, [divByFive, multiplyFive, addTen])); // Should output 10
+
+function myFunc(array, callback) {
+    let input = -1
+      for(const elem of array) {
+      if(callback(elem) === true) {
+        input = array.indexOf(elem)
+      } else {
+        input;
+      }
+    }
+    return input
+  }
+  
+  const numbers = [2, 3, 6, 64, 10, 8, 12];
+  const evens = [2, 4, 6, 8, 10, 12, 64];
+  
+  function isOdd(num) {
+    return (num % 2 !== 0);
+  }
+  
+  // /*** Uncomment these to check your work! ***/
+//   console.log(myFunc(numbers, isOdd)); // Output should be 1
+//   console.log(myFunc(evens, isOdd)); // Output should be -1
+  
