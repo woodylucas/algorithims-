@@ -296,14 +296,14 @@ function pipe(arrOfFuncs, value) {
     if(arrOfFuncs.length === 0) return value;
     let output = arrOfFuncs[0](value);
     return pipe(arrOfFuncs.slice(1), output)
-
-    // return arrOfFuncs.reduce((acc, curr) => {
-    //     const output = curr(acc)
-    //     return output
-    //   }, value);
   }
 
-  [capitalize addLowerCase, repeat]
+//   function pipe(arrOfFuncs, value,) {
+//     return arrOfFuncs.reduce((acc, curr) => {
+//       const output = curr(acc)
+//       return output
+//     }, value);
+//   }
 
   
   // /*** Uncomment these to check your work! ***/
