@@ -325,3 +325,33 @@ function pipe(arrOfFuncs, value) {
   // console.log(highestFunc(groupOfFuncs, 5)); // should log: 'addTen'
   // console.log(highestFunc(groupOfFuncs, 11)); // should log: 'double'
   // console.log(highestFunc(groupOfFuncs, -20)); // should log: 'inverse'
+
+  function combineOperations(startVal, arrOfFuncs) {
+    if(arrOfFuncs.length === 0) return startVal; 
+    let output = arrOfFuncs[0](startVal);
+    return combineOperations(output, arrOfFuncs.slice(1))
+  }
+  
+  function addTen(num) {
+    return num + 10;
+  }
+  
+  function add100(num) {
+    return num + 100;
+  }
+  
+  function divByFive(num) {
+    return num / 5;
+  }
+  
+  function multiplyByThree(num) {
+    return num * 3;
+  }
+  
+  function multiplyFive(num) {
+    return num * 5;
+  }
+
+// /*** Uncomment these to check your work! ***/
+// console.log(combineOperations(0, [add100, divByFive, multiplyByThree])); // Should output 60 -->
+// console.log(combineOperations(0, [divByFive, multiplyFive, addTen])); // Should output 10
