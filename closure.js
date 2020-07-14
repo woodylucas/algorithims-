@@ -243,3 +243,20 @@ function saveOutput(func, str, obj = {}) {
 // ELSE 
 // RETURN obj;
 
+// CHALLENGE 7
+function rollCall(names, index = 0) {
+  return function(){
+    const increment = names[index++]; 
+    if(index > names.length) return 'Everyone accounted for'
+    return increment;
+  }
+}
+
+// /*** Uncomment these to check your work! ***/
+const rollCaller = rollCall(['Victoria', 'Juan', 'Ruth'])
+console.log(rollCaller()) // => should log 'Victoria'
+console.log(rollCaller()) // => should log 'Juan'
+console.log(rollCaller()) // => should log 'Ruth'
+console.log(rollCaller()) // => should log 'Everyone accounted for'
+
+
