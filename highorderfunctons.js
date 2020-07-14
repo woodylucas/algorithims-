@@ -305,6 +305,14 @@ function pipe(arrOfFuncs, value) {
 //     }, value);
 //   }
 
+function pipe(arrOfFuncs, value) {
+  let output = value;
+  for(let i = 0; i < arrOfFuncs.length; i++) {
+    output = arrOfFuncs[i](output)
+  }
+  return output;
+}
+
   
   // /*** Uncomment these to check your work! ***/
   // const capitalize = str => str.toUpperCase();
