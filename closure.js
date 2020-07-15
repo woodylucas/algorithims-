@@ -264,3 +264,17 @@ function rollCall(names, index = 0) {
 // console.log(rollCaller()) // => should log 'Everyone accounted for'
 
 
+// CHALLENGE 14
+function callTimes(counter = 1) {
+  return function() {
+    return counter++;
+  }
+}
+
+// /*** Uncomment these to check your work! ***/
+// let myNewFunc1 = callTimes();
+// let myNewFunc2 = callTimes();
+// console.log(myNewFunc1()); // => 1
+// console.log(myNewFunc1()); // => 2
+// console.log(myNewFunc2()); // => 1
+// console.log(myNewFunc2()); // => 2
