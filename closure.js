@@ -165,35 +165,39 @@ function once(cb) {
       // RETURN object w/ date as key & value as todays date(human readable) not including time , output as key, and func() as value 
 
 
-
-// PSEUDOCODE 
-// CREATE a function declaration: censor
-// Input: none. 
-// RETURN a function declaration: replaceWith()
-// INPUT: at least one string ---> rest parameters (...args) collection of arguments. 
-// IF two strings are given
-	// RETURN as pair. 
-// IF one string is given.
-	// RETURN same string, but REPLACE the first string saved pair with second string pair 
+// PSUEDOCODE: 
+// INPUT: No arguments.
+// DECLARE two Constant variables to two empty arrays: str1 = [], str2 = []
+// RETURN: a function, INPUT: rest parameter --> either 1 or two strings. So multiple arguments
+// IF TWO strings are given ---> hold on as a pair. args[0], args[1] str1.push(args[0]) str2.push(args[1])
+// IF ONE string is given, RETURN same string = args[0], except all instances in string one will be REPLACED., by instances in string two. To replace the string we will need to iterate through both arrays w/ replace method.
 
 function censor(str1 = [], str2 = []) {
-  function replaceWith(...args) {
+  return function(...args) {
     if(args.length === 2) {
       str1.push(args[0]);
       str2.push(args[1]);
     }
     if(args.length === 1) {
-      let newString = args[0];
+      let newString = args[0]; 
+      
       for(let i = 0; i < str1.length; i++) {
-        let input = new RegExp(str1[i], 'g'); 
-        let output = new RegExp(str2[i]);
-        newString = (newString.replace(input, output)).replace(/[\/]/g, '')
+        const regexStrOne = new RegExp(str1[i], 'g');
+        const regexStrTwo = new RegExp(str2[i]);
+        newString = newString.replace(regexStrOne, regexStrTwo).replace(/[\/]/g, '')
       }
       return newString
     }
+  
   }
-  return replaceWith; 
-};
+}
+
+// /*** Uncomment these to check your work! ***/
+const changeScene = censor();
+changeScene('dogs', 'cats');
+changeScene('quick', 'slow');
+console.log(changeScene('The quick, brown fox jumps over the lazy dogs.')); // => should log 'The slow, brown fox jumps over the lazy cats.'
+
 
 function cycleIterator(arr, index = 0) {
   return function() {
@@ -253,10 +257,10 @@ function rollCall(names, index = 0) {
 }
 
 // /*** Uncomment these to check your work! ***/
-const rollCaller = rollCall(['Victoria', 'Juan', 'Ruth'])
-console.log(rollCaller()) // => should log 'Victoria'
-console.log(rollCaller()) // => should log 'Juan'
-console.log(rollCaller()) // => should log 'Ruth'
-console.log(rollCaller()) // => should log 'Everyone accounted for'
+// const rollCaller = rollCall(['Victoria', 'Juan', 'Ruth'])
+// console.log(rollCaller()) // => should log 'Victoria'
+// console.log(rollCaller()) // => should log 'Juan'
+// console.log(rollCaller()) // => should log 'Ruth'
+// console.log(rollCaller()) // => should log 'Everyone accounted for'
 
 
