@@ -278,3 +278,33 @@ function callTimes(counter = 1) {
 // console.log(myNewFunc1()); // => 2
 // console.log(myNewFunc2()); // => 1
 // console.log(myNewFunc2()); // => 2
+
+// CHALLENGE 15
+// PSEUDOCODE
+// INPUT: num 
+// SET a counter to 0. 
+// RETURN a function that will take no arguments, this function will return a string
+// CREATE a variable name increment.
+// IF counter <= num increment. set string = 'click'
+// IF counter is === num set string to bang 
+// IF counter is greater than num --> nth term, a string = reload to play again. 
+// RETURN string
+function russianRoulette(num, counter = 0) {
+  return function() {
+    let string;
+    if(counter <= num) counter++
+    string = 'click'
+    if(counter === num ) string = 'bang';
+    if(counter > num) string = 'reload to play again'
+    return string;
+  }
+}
+
+// /*** Uncomment these to check your work! ***/
+const play = russianRoulette(3);
+console.log(play()); // => should log 'click'
+console.log(play()); // => should log 'click'
+console.log(play()); // => should log 'bang'
+console.log(play()); // => should log 'reload to play again'
+console.log(play()); // => should log 'reload to play again'
+
