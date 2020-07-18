@@ -390,7 +390,7 @@ function makeHistory(limit) {
       } else if (args[0] === 'undo') {
         result = `${cachedStr[i]} undone`;
         cachedStr.splice(i, 1)
-      } else if(cachedStr === 0) {
+      } else if(cachedStr.length === 0) {
         result;
       }
     }
