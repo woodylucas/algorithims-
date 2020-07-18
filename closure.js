@@ -347,14 +347,16 @@ function average() {
 
 
 function makeFuncTester(arrOfTests) {
-  let result = false;
   return function(cb) {
+    let result = true;
+    // return arrOfTests.every(elem => elem.includes(cb(elem[0])))
+
     for(let i = 0; i < arrOfTests.length; i++) {
       const arrElems = arrOfTests[i];
       if(cb(arrElems[0]) === arrElems[1]) {
-        result = true; 
-      } else {
         result;
+      } else {
+        result = false;
       }
     }
     return result;
