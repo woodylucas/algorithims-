@@ -371,3 +371,41 @@ function makeFuncTester(arrOfTests) {
 // const capLastAttempt2 = str => str.slice(0, -1) + str.slice(-1).toUpperCase();
 // console.log(shouldCapitalizeLast(capLastAttempt1)); // => should log false
 // console.log(shouldCapitalizeLast(capLastAttempt2)); // => should log true
+
+
+function makeHistory(limit) {
+  const cachedStr = [];
+  
+  function saveHistory(...args) {
+    let result = 'nothing to undo'
+
+    if(cachedStr.length <= limit && args[0] !== 'undo') {
+      cachedStr.push(...args);
+    }
+    
+    
+    for(let i = 0; i < cachedStr.length; i++) {
+      if(args[0] !== 'undo') {
+        result = `${cachedStr[i]} done`;
+      } else if (args[0] === 'undo') {
+        result = `${cachedStr[i]} undone`;
+        cachedStr.splice(i, 1)
+      } else if(cachedStr === 0) {
+        result;
+      }
+    }
+    return result;
+  }
+  return saveHistory;
+}
+
+// /*** Uncomment these to check your work! ***/
+// const myActions = makeHistory(2);
+// console.log(myActions('jump')); // => should log 'jump done'
+// console.log(myActions('undo')); // => should log 'jump undone'
+// console.log(myActions('walk')); // => should log 'walk done'
+// console.log(myActions('code')); // => should log 'code done'
+// console.log(myActions('pose')); // => should log 'pose done'
+// console.log(myActions('undo')); // => should log 'pose undone'
+// console.log(myActions('undo')); // => should log 'code undone'
+// console.log(myActions('undo')); // => should log 'nothing to undo'
