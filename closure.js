@@ -335,4 +335,39 @@ function average() {
 // console.log(avgSoFar(8)); // => should log 6
 // console.log(avgSoFar()); // => should log 6
 // console.log(avgSoFar(12)); // => should log 8
-// console.log(avgSoFar()); // => should log 8
+// console.log(avgSoFar()); // => should log 8z
+
+// CHALLENGE 17
+// PSEUDOCODE 
+// INPUT: array ---> a subarray 
+// RETURN a function INPUT: callback function ---> function should return a boolean. 
+// IF the first element of each sub array being passed in the callback that produce the the element of the elements in the sub array. 
+//ELSE IF return false.
+
+
+
+function makeFuncTester(arrOfTests) {
+  let result = false;
+  return function(cb) {
+    for(let i = 0; i < arrOfTests.length; i++) {
+      const arrElems = arrOfTests[i];
+      if(cb(arrElems[0]) === arrElems[1]) {
+        result = true; 
+      } else {
+        result;
+      }
+    }
+    return result;
+  }
+}
+
+// /*** Uncomment these to check your work! ***/
+// const capLastTestCases = []; // --> capLastTestCases = [['hello', 'hellO'], ['goodbye', 'goodbyE'], ['howdy', 'howdY'] ]  IF a
+// capLastTestCases.push(['hello', 'hellO']);
+// capLastTestCases.push(['goodbye', 'goodbyE']);
+// capLastTestCases.push(['howdy', 'howdY']);
+// const shouldCapitalizeLast = makeFuncTester(capLastTestCases);
+// const capLastAttempt1 = str => str.toUpperCase();
+// const capLastAttempt2 = str => str.slice(0, -1) + str.slice(-1).toUpperCase();
+// console.log(shouldCapitalizeLast(capLastAttempt1)); // => should log false
+// console.log(shouldCapitalizeLast(capLastAttempt2)); // => should log true
