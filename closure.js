@@ -308,3 +308,31 @@ console.log(play()); // => should log 'bang'
 console.log(play()); // => should log 'reload to play again'
 console.log(play()); // => should log 'reload to play again'
 
+
+function average() {
+  let sum = 0;
+  let count = 0;
+  return function(num) {
+    let avg;
+    if(typeof num === 'number') {
+      sum += num; 
+      count++
+    }
+    if(count !== 0) {
+      avg = sum / count
+    } else {
+      avg = 0
+    }
+    
+    return avg
+  }
+}
+
+// /*** Uncomment these to check your work! ***/
+// const avgSoFar = average();
+// console.log(avgSoFar()); // => should log 0
+// console.log(avgSoFar(4)); // => should log 4
+// console.log(avgSoFar(8)); // => should log 6
+// console.log(avgSoFar()); // => should log 6
+// console.log(avgSoFar(12)); // => should log 8
+// console.log(avgSoFar()); // => should log 8
