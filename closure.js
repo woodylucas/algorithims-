@@ -375,18 +375,28 @@ function makeFuncTester(arrOfTests) {
 // console.log(shouldCapitalizeLast(capLastAttempt2)); // => should log true
 
 
+// CHALLENGE 18
+//PSEUDOCODE
+// Create a function: makeHistory()
+// INPUT: limit ---> 
+// RETURN a function --> that will accept a string. INPUT: string. 
+// We will store a history of strings ---> in a array? ---> Edge case: if cachedStr.length > limit return 'You hacve no available space.'
+// Use a for loop to iterate through cachedstr to make conditions.
+// Will save the the output of strings. ---> one per invocation. 
+// Every time a string is passed the word done should follow it ---> string + ' done'; 
+// IF string 'undo' is passed ---> cachedString + ' undone' 
+// IF 'undo' is passed and the history is empty RETURN 'nothing to undo'
+
 function makeHistory(limit) {
   const cachedStr = [];
   
   function saveHistory(...args) {
-    let result = 'nothing to undo'
+    let result = 'nothing to undo';
 
-    if(cachedStr.length <= limit && args[0] !== 'undo') {
-      cachedStr.push(...args);
-    }
-    
-    
+    if(cachedStr.length <= limit && args[0] !== 'undo') cachedStr.push(...args);
+
     for(let i = 0; i < cachedStr.length; i++) {
+      // console.log('CACHEDSTRING:', cachedStr)
       if(args[0] !== 'undo') {
         result = `${cachedStr[i]} done`;
       } else if (args[0] === 'undo') {
@@ -411,3 +421,4 @@ function makeHistory(limit) {
 // console.log(myActions('undo')); // => should log 'pose undone'
 // console.log(myActions('undo')); // => should log 'code undone'
 // console.log(myActions('undo')); // => should log 'nothing to undo'
+
