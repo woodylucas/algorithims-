@@ -447,7 +447,6 @@ function blackjack(array) {
       total += incrementor
       if(sum > 21) {
         output = string
-        string = 'bust'
         string = 'you are done!'
         return output;
       }
