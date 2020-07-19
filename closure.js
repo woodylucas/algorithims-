@@ -435,11 +435,12 @@ function makeHistory(limit) {
 // IF its over 21 every invovation of player after that will return a string 'you are done'
 function blackjack(array) {
   let sum = 0
-  let index = 0
   
   function dealer(num1, num2) {
+    let index = 0
     let total = num1 + num2
     let string = 'bust'
+    
     function player() {
       let incrementor = array[index++];
       sum = total;
