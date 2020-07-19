@@ -422,3 +422,53 @@ function makeHistory(limit) {
 // console.log(myActions('undo')); // => should log 'code undone'
 // console.log(myActions('undo')); // => should log 'nothing to undo'
 
+// CHALLENGE 19
+// PSEUDOCODE
+// CREATE a function named: blackjack()
+// declare a variable sum is 0
+// INPUT: array ---> w/ numbers ranging from 1 through 11
+// RETURN a function name: dealer() ---> take two arguments INPUT: num1, num2 
+// RETURN a function name: player()
+// First invocation should return the sum of num1 + num2 
+// when player is invoked on the second time RETURN first number in array that was passed into blackjack + the sum of two numbers passed into dealer function. 
+// IF sum is <= 21 or IF sum is > 21 --> 'bust' 
+// IF its over 21 every invovation of player after that will return a string 'you are done'
+function blackjack(array) {
+  let sum = 0
+  let index = 0
+  let output;
+  
+  function dealer(num1, num2) {
+    let total = num1 + num2
+    let string = 'bust'
+    function player() {
+      let incrementor = array[index++];
+      sum = total;
+      total += incrementor
+      if(sum > 21) {
+        output = string
+        string = 'bust'
+        string = 'you are done!'
+        return output;
+      }
+      return sum;
+    }
+    return player;
+  }
+  return dealer;
+}
+
+// /*** Uncomment these to check your work! ***/
+
+// /*** DEALER ***/
+const deal = blackjack([2, 6, 1, 7, 11, 4, 6, 3, 9, 8, 9, 3, 10, 4, 5, 3, 7, 4, 9, 6, 10, 11]);
+
+// // /*** PLAYER 1 ***/
+// const i_like_to_live_dangerously = deal(4, 5);
+// console.log(i_like_to_live_dangerously()); // => should log 9
+// console.log(i_like_to_live_dangerously()); // => should log 11
+//  console.log(i_like_to_live_dangerously()); // => should log 17
+// console.log(i_like_to_live_dangerously()); // => should log 18
+// console.log(i_like_to_live_dangerously()); // => should log 'bust'
+// console.log(i_like_to_live_dangerously()); // => should log 'you are done!'
+// console.log(i_like_to_live_dangerously()); // => should log 'you are done!'
