@@ -436,7 +436,6 @@ function makeHistory(limit) {
 function blackjack(array) {
   let sum = 0
   let index = 0
-  let output;
   
   function dealer(num1, num2) {
     let total = num1 + num2
@@ -446,7 +445,7 @@ function blackjack(array) {
       sum = total;
       total += incrementor
       if(sum > 21) {
-        output = string
+        let output = string
         string = 'you are done!'
         return output;
       }
