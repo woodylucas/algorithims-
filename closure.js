@@ -334,24 +334,34 @@ function callTimes(counter = 1) {
 // IF counter is === num set string to bang 
 // IF counter is greater than num --> nth term, a string = reload to play again. 
 // RETURN string
-function russianRoulette(num, counter = 0) {
+// DECLARE a function declaration: russianRoulette
+function russianRoulette(num) { // INPUT: number Parameter name: num
+  
+  let stringOutput = 'click'; // DECLARE a variable stringOutput initialize it to 'CLICK'
+  
+  let count = 0;// DECLARE a varibale count initialize to 0
+  
   return function() {
-    let string;
-    if(counter <= num) counter++
-    string = 'click'
-    if(counter === num ) string = 'bang';
-    if(counter > num) string = 'reload to play again'
-    return string;
+    if(count <= num) count++; // IF count < num increment count w/ a unary operator as count++
+    
+    stringOutput;
+    
+    if(count === num) stringOutput = 'bang'; 	// IF count is equal to num change the value type of variable string to 'BANG'
+    
+    if(count > num) stringOutput = 'reload to play again'; // IF count is GREATER THAN num change the value type to 'RELOAD TO PLAY AGAIN'
+    return stringOutput;
   }
+  	
+  	
 }
 
 // /*** Uncomment these to check your work! ***/
-const play = russianRoulette(3);
-console.log(play()); // => should log 'click'
-console.log(play()); // => should log 'click'
-console.log(play()); // => should log 'bang'
-console.log(play()); // => should log 'reload to play again'
-console.log(play()); // => should log 'reload to play again'
+// const play = russianRoulette(3);
+// console.log(play()); // => should log 'click'
+// console.log(play()); // => should log 'click'
+// console.log(play()); // => should log 'bang'
+// console.log(play()); // => should log 'reload to play again'
+// console.log(play()); // => should log 'reload to play again'
 
 
 function average() {
