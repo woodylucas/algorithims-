@@ -30,6 +30,30 @@ function createFunctionPrinter(input) { // INPUT: will take in an argument named
 // printHello(); // => should console.log('hello');
 
 
+function addByX(x) { // CREATE a function declaration: addByX
+  // INPUT: x --> paramenter name argument will be passed in
+  function inner(input) { // DECLARE a function declation inner() will take in an argument. PARAMETER name: input.
+    return input + x; // RETURN input + x  
+  }
+  return inner // RETURN function definition 
+}
+
+// /*** Uncomment these to check your work! ***/
+const addByTwo = addByX(2);
+// console.log(addByTwo(1)); // => should return 3
+// console.log(addByTwo(2)); // => should return 4
+// console.log(addByTwo(3)); // => should return 5
+
+// const addByThree = addByX(3);
+// console.log(addByThree(1)); // => should return 4
+// console.log(addByThree(2)); // => should return 5
+
+// const addByFour = addByX(4);
+// console.log(addByFour(4)); // => should return 8
+// console.log(addByFour(5)); // => should return 9
+
+
+
 function once(cb, output = []) {
     function insideFunc(...args) {
       output.push(cb(...args))
