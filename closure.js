@@ -1,3 +1,35 @@
+// CHALLENGE 1
+// create a function declaration: createFunction
+function createFunction() {
+	// RETURN a function declaration inside()
+  function inside() {
+    console.log('hello'); // Print 'hello'
+  }
+  return inside; // RETURN the function definition.  
+}
+
+
+
+// /*** Uncomment these to check your work! ***/
+// const function1 = createFunction();
+// function1(); // => should console.log('hello');
+
+
+// CHALLENGE 2
+// CREATE a function declaration: createFunctionPrinter()
+function createFunctionPrinter(input) { // INPUT: will take in an argument named input
+  return function() { // RETURN a function declaration
+    console.log(input); 	// PRINT input argument
+  }
+}
+
+// /*** Uncomment these to check your work! ***/
+// const printSample = createFunctionPrinter('sample');
+// printSample(); // => should console.log('sample');
+// const printHello = createFunctionPrinter('hello');
+// printHello(); // => should console.log('hello');
+
+
 function once(cb, output = []) {
     function insideFunc(...args) {
       output.push(cb(...args))
