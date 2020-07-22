@@ -335,6 +335,8 @@ function callTimes(counter = 1) {
 // IF counter is greater than num --> nth term, a string = reload to play again. 
 // RETURN string
 // DECLARE a function declaration: russianRoulette
+
+
 function russianRoulette(num) { // INPUT: number Parameter name: num
   
   let stringOutput = 'click'; // DECLARE a variable stringOutput initialize it to 'CLICK'
@@ -364,40 +366,31 @@ function russianRoulette(num) { // INPUT: number Parameter name: num
 // console.log(play()); // => should log 'reload to play again'
 
 
+// CHALLENGE 16
+// DECLARE a function declaration: average.
 function average() {
-  let sum = 0;
-  let count = 0;
-  return function(num) {
-    let avg;
-    if(typeof num === 'number') {
-      sum += num; 
-      count++
+  let sum = 0;// DECLARE a variable sum that is initialize to 0.
+  let count = 0;// DECLARE a varibale count that is initialize to 0.
+  return function(num) {  // INPUT: a number argument ---> parameter set as num
+    let avg; 
+    if(typeof num === 'number') {  	// IF type of num is a 'number' 
+      
+      sum += num 	// SUM will add every input 
+      
+      count++; // COUNT will increment by 1 w/ a unary operator 
+      
     }
-    if(count !== 0) {
-      avg = sum / count
+    
+    if(count !== 0 ) { // IF count is not equal to zero 
+      avg = sum / count; 
     } else {
       avg = 0
     }
     
-    return avg
+    return avg;
   }
+  	
 }
-
-// /*** Uncomment these to check your work! ***/
-// const avgSoFar = average();
-// console.log(avgSoFar()); // => should log 0
-// console.log(avgSoFar(4)); // => should log 4
-// console.log(avgSoFar(8)); // => should log 6
-// console.log(avgSoFar()); // => should log 6
-// console.log(avgSoFar(12)); // => should log 8
-// console.log(avgSoFar()); // => should log 8z
-
-// CHALLENGE 17
-// PSEUDOCODE 
-// INPUT: array ---> a subarray 
-// RETURN a function INPUT: callback function ---> function should return a boolean. 
-// IF the first element of each sub array being passed in the callback that produce the the element of the elements in the sub array. 
-//ELSE IF return false.
 
 
 
