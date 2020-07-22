@@ -274,32 +274,17 @@ function saveOutput(func, str, obj = {}) {
   }
 }
 
-// PSEUDOCODE
-// CREATE a function declaration: saveOutput
-// INPUT: func ---> will accept one argument. string
-// RETURN a function declaration ---> pass-in function. 
-// INPUT: multiple argmuments ---> rest operator (...args)
-// IF string !== args
-// func(args) RETURN obj[args] = func(args)
-// ELSE 
-// RETURN obj;
-
 // CHALLENGE 7
-function rollCall(names, index = 0) {
-  return function(){
-    const increment = names[index++]; 
-    if(index > names.length) return 'Everyone accounted for'
-    return increment;
-  }
-}
-
-// /*** Uncomment these to check your work! ***/
-// const rollCaller = rollCall(['Victoria', 'Juan', 'Ruth'])
-// console.log(rollCaller()) // => should log 'Victoria'
-// console.log(rollCaller()) // => should log 'Juan'
-// console.log(rollCaller()) // => should log 'Ruth'
-// console.log(rollCaller()) // => should log 'Everyone accounted for'
-
+function rollCall(names) { // DECLARE a function declaration: rollCall
+  // INPUT: will take an argument of an array of names ---> parameters name is: names. 
+  let index = 0;// DECLARE a variable index initialized to 0. 
+  return function() { // RETURN a function declaration 
+    const increment = names[index++]; // DECLARE a constant variable increment, initialize to array names incrementing index with a unary operator. 
+    
+    // IF index GREATER than or EQUAL to the length of the array 
+    if(index > names.length) return 'Everyone accounted for';
+    return increment; // RETURN increment
+  } 
 
 // CHALLENGE 14
 function callTimes(counter = 1) {
