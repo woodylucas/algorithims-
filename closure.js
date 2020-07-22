@@ -258,21 +258,38 @@ function cycleIterator(arr, index = 0) {
 // RETURN incrementor 
 
 
-function saveOutput(func, str, obj = {}) {
-  let password = str;
-  return function(...args) {
+// CHALLENGE 8
+function saveOutput(func, magicWord) { // DECLARE function declaration: saveOutput 
+  // INPUT: takes two arguments(callback, and string): func, and magicWord as parameter names. 
   
-    let keycode = args[0];
+  const obj = {};// DECLARE a constant variable obj, initialize to an empty object.
+  
+  let password = magicWord;// DECLARE a variable password initialize to magicWord 
+  
+  return function(...args) {// RETURN a function that takes one argument, a rest parameter. 
     
-    if(password !== keycode) {
-      func(...args)
-      return obj[args] = func(...args)
+    let passkey = args[0]; 
+    if(password !== passkey) { // IF password is not equal to passkey 
+      
+      func(...args) // Pass in args to obtain the output for the function
+      
+      return obj[args] = func(...args); // SET object to have input as its keys and the output from the function as its value
+      
     } else {
-      return obj;
+      
+      return obj; // RETURN the object 
     }
-    
   }
+
 }
+
+// /*** Uncomment these to check your work! ***/
+// const multiplyBy2 = function(num) { return num * 2; };
+// const multBy2AndLog = saveOutput(multiplyBy2, 'boo');
+// console.log(multBy2AndLog(2)); // => should log 4
+// console.log(multBy2AndLog(9)); // => should log 18
+// console.log(multBy2AndLog('boo')); // => should log { 2: 4, 9: 18 }
+
 
 // CHALLENGE 7
 function rollCall(names) { // DECLARE a function declaration: rollCall
