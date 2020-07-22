@@ -90,83 +90,64 @@ function once(cb, output = []) {
           
   
   // Alternate way
-function once(cb) {
-    let hasBeenCalled = false;
-    let cachedResult; 
-    
-    function oncified(...args) {
-      if(!hasBeenCalled) {
-        cachedResult = cb(...args)
-        hasBeenCalled = true;
-      }
-      return cachedResult;
+// CHALLENGE 4
+function once(func) { // declare a function declaration: once
+  // INPUT: will be a callback --> Parameter name: func
+  
+  let hasBeenCalled = false;// DECLARE a variable: hasBeenCalled initialize the value to a boolean ---> false.
+  
+  let cachedResult;// DECLARE a variable cachedResult --> no initialization. Value will change.
+  
+  return function(...args) { // RETURN a function declaration 
+    // INPUT: will take a rest parameter ---> array of arguments
+    if(!hasBeenCalled) { // IF hasBeenCalled is true --> '!' BANG operator flips the value. 
+      cachedResult = func(...args); 	// CACHEDRESULT is initialize to the output of the callback w/ args as its input. 
+      hasBeenCalled = true; // INITIALIZE hasBeenCalled variable to true 
     }
-    return oncified;
+    return cachedResult; // RETURN cachedResult;
   }
 
+}
+
+// /*** Uncomment these to check your work! ***/
+// const onceFunc = once(addByTwo);
+// console.log(onceFunc(4));  // => should log 6
+// console.log(onceFunc(10));  // => should log 6
+// console.log(onceFunc(9001));  // => should log 6
 
 
 
-
-
-
-
-
-  function after(num, cb, counter = 0) {
-    return function(...args) {
-      console.log(counter)
-      counter++ 
-      
-      if(counter >= num) return cb(...args);
-    }
-  }
+// CHALLENGE 5
+function after(count, func) { // DECLARE a function declaration: after
+  // INPUT: after will take two arguments a number and a callback --> PARAMETER names are count, func
+  
+  let counter = 0;// DECLARE a variable counter initialize it to 0. 
+  return function() { // RETURN a function declaration: 0 arguments
     
-  
-  const called = function(string) { return('hello ' + string); };
-  const afterCalled = after(3, called);
-  
-  // UNCOMMENT THESE LINES TO TEST YOUR WORK
-   console.log(afterCalled('world')); // -> undefined is printed
-   console.log(afterCalled('world')); // -> undefined is printed
-   console.log(afterCalled('world')); // -> 'hello world' is printed
-  
-  // PSEUDOCODE 
-  
-  // DECLARE a function after
-  
-  // INPUT: num, cb, counter = 0
-  
-  // INCREMENT COUNTER 
-  
-  // IF COUNTER >= num 
-  
-      // RETURN cb invoked
-  
-      function delay(cb, time) {
-  
-        function waitForIt() {
-          
-          return setTimeout(cb, time)
-        }
-        return waitForIt;
-      }
-      
-      // UNCOMMENT THE CODE BELOW TO TEST DELAY
-      let count = 0;
-      const delayedFunc = delay(() => count++, 1000);
-      delayedFunc();
-      console.log(count); 												 // should print '0'
-      setTimeout(() => console.log(count), 1000); // should print '1' after 1 second
-      
-      // PSEUDOCODE 
-      
-      // DECLARE a function declaration: delay
-      
-      // INPUT: cb, time
-      
-              // RETURN declare a function name: waitForIt()
-      
-                      // RETURN cb w/ setTimout()
+    // IF counter is less than count
+    if(counter < count) counter++; // INCREMENT counter --> unary operator counter++
+    
+    // IF counter is greater than or equal to count 
+    if(counter >= count) return func(); // RETURN callback invoked 
+    
+  }
+
+}
+
+// CHALLENGE 6
+function delay(func, wait) { // DECLARE a function declaration delay. 
+  // INPUT: delay will take two arguments a callback, and a time. PARAMETER names: func, wait 
+  return function() {  // RETURN a function declaration 
+    return setTimeout(func, wait) 	// RETURN a method setTimeout that takes two arguments a function, and a time 
+  }
+}
+
+// let count = 0;
+// const delayedFunc = delay(() => count++, 1000);
+// delayedFunc();
+// console.log(count); 												 // should print '0'
+// setTimeout(() => console.log(count), 1000); // should print '1' after 1 second
+
 
       function defineFirstArg(func, arg) {
         function inside(...args) {
