@@ -149,6 +149,7 @@ function delay(func, wait) { // DECLARE a function declaration delay.
 // setTimeout(() => console.log(count), 1000); // should print '1' after 1 second
 
 // CHALLENGE 10
+
 // DECLARE a function declaration defineFirstArg
 function defineFirstArg(func, arg) { // INPUT: a func, and an argument --> These are the parameter names. 
   
@@ -158,73 +159,81 @@ function defineFirstArg(func, arg) { // INPUT: a func, and an argument --> These
     
     return func(arg, input) // RETURN the callback invoked with arg. additional arguments. 
   
-  }
-  		
+  }		
   
 }
 
-      function dateStamp(func, obj = {} ) {
+
+// /*** Uncomment these to check your work! ***/
+// const subtract = function(big, small) { return big - small; };
+// const subFrom20 = defineFirstArg(subtract, 20);
+// console.log(subFrom20(5)); // => should log 15
+
+
+
+// CHALLENGE 11
+// DECLARE a function delcaration: dateStamp 
+function dateStamp(func) { // INPUT: callback --> parameter name is func. 
   
-        return function(...args) {
-          const date = new Date().toDateString()
-          obj.date = date
-          obj.output = func(...args)
-          return obj;
-        }
-        
-      }
-      
-      // Uncomment these to check your work!
-       const stampedMultBy2 = dateStamp(n => n * 2);
-       console.log(stampedMultBy2(4)); // should log: { date: (today's date), output: 8 }
-       console.log(stampedMultBy2(6)); // should log: { date: (today's date), output: 12 }
-      
-      // PSEUDOCODE 
-      
-      // CREATE a function declaration: dateStamp 
-      
-      // INPUT: func 
-      
-      // RETURN a function 
-      
-      // INPUT: rest parameter ...args 
-      
-      // RETURN object w/ date as key & value as todays date(human readable) not including time , output as key, and func() as value 
-
-
-// PSUEDOCODE: 
-// INPUT: No arguments.
-// DECLARE two Constant variables to two empty arrays: str1 = [], str2 = []
-// RETURN: a function, INPUT: rest parameter --> either 1 or two strings. So multiple arguments
-// IF TWO strings are given ---> hold on as a pair. args[0], args[1] str1.push(args[0]) str2.push(args[1])
-// IF ONE string is given, RETURN same string = args[0], except all instances in string one will be REPLACED., by instances in string two. To replace the string we will need to iterate through both arrays w/ replace method.
-
-function censor(str1 = [], str2 = []) {
-  return function(...args) {
-    if(args.length === 2) {
-      str1.push(args[0]);
-      str2.push(args[1]);
-    }
-    if(args.length === 1) {
-      let newString = args[0]; 
-      
-      for(let i = 0; i < str1.length; i++) {
-        const regexStrOne = new RegExp(str1[i], 'g');
-        const regexStrTwo = new RegExp(str2[i]);
-        newString = newString.replace(regexStrOne, regexStrTwo).replace(/[\/]/g, '')
-      }
-      return newString
-    }
+  const obj = {};// DECLARE a constant variable obj that is initialize to an empty object. 
   
+  return function(...args) { // INPUT: however many arguments --> rest paramenter
+    
+    let dateReadable = new Date().toDateString(); // DECLARE a variable dateReadable that is initialize to the date object has a method toDateString to exclude time. 
+    
+    obj.date = dateReadable; // BUILD object w/ the date as its KEY and value type that is store in date readable as its VALUE. 
+    
+   obj.output = func(...args) // BUILD object w/ the output as its KEY and output that is stored from the callback function.
+    
+    return obj;
+    
   }
+  
 }
 
 // /*** Uncomment these to check your work! ***/
-const changeScene = censor();
-changeScene('dogs', 'cats');
-changeScene('quick', 'slow');
-console.log(changeScene('The quick, brown fox jumps over the lazy dogs.')); // => should log 'The slow, brown fox jumps over the lazy cats.'
+// const stampedMultBy2 = dateStamp(n => n * 2);
+// console.log(stampedMultBy2(4)); // => should log { date: (today's date), output: 8 }
+// console.log(stampedMultBy2(6)); // => should log { date: (today's date), output: 12 }
 
+
+
+f// CHALLENGE 12
+function censor() { // declare a function declaration censor which takes in 0 arguments
+  
+  const str1 = []; // DECLARE a const variable str1 initialize it to an empty array.
+  
+  const str2 = [];// DECLARE a const variable str2 initialize it to an empty array.
+  
+  return function(...args) {  // RETURN a function that will accept multiple arguments rest parameters (array of arguments)
+    
+    // IF the length of the arguments array is two 
+    if(args.length === 2) { 
+      str1.push(args[0]); // PUSH the first argument into the first array, and second into second array. 
+      str2.push(args[1]);
+    }
+    
+    // IF the length of the arguments array is one.
+    if(args.length === 1) {
+      let newStr = args[0] // DECLARE a variable name newStr intialize to the first arugument/first string. 
+      
+      // FOR LOOP: 
+  			// DECLARE a variable i which will be a counter set to 0
+  			// BREAK when counter (i) is the length of the str1 array
+  			// INCREMENT counter(i) by one with a unary operator.
+      for(let i = 0; i < str1.length; i++) {
+        let regexInput = new RegExp(str1[i], 'g') // DECLARE a variable regexInput initialize to REGEXP object that will find all the instances that are found in the first array. 	
+        
+        let regexOutput = new RegExp(str2[i]) // DECLARE a variable regexOutput initialize REGEXP object that will find the element in second array. 
+        
+        newStr = newStr.replace(regexInput, regexOutput).replace(/[\/]/g, '') 	// CHANGE newStr which is initialize to a value type REPLACE the newStr input with output. Replace array ethods with a string. 
+      }
+      return newStr;
+      
+    }
+  	
+  }
+}
 
 // CHALLENGE 9
 function cycleIterator(array) { // DECLARE a function declaration: cycleIterator
