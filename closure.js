@@ -148,30 +148,20 @@ function delay(func, wait) { // DECLARE a function declaration delay.
 // console.log(count); 												 // should print '0'
 // setTimeout(() => console.log(count), 1000); // should print '1' after 1 second
 
-
-      function defineFirstArg(func, arg) {
-        function inside(...args) {
-          return func(arg, ...args)
-        }
-        return inside;
-      }
-      
-      // Uncomment these to check your work!
-      const subtract = function(big, small) { return big - small; };
-      const subFrom20 = defineFirstArg(subtract, 20);
-      console.log(subFrom20(5)); // should log: 15
-      
-      // PSEUDOCODE 
-      
-      // DECLARE a function: defineFirstArg
-      
-      // INPUT: func, arg
-      
-      // RETURN function declaration 
-      
-      // INPUT: rest parameter ...args 
-      
-      // RETURN function 
+// CHALLENGE 10
+// DECLARE a function declaration defineFirstArg
+function defineFirstArg(func, arg) { // INPUT: a func, and an argument --> These are the parameter names. 
+  
+  // The callback will receive one argument: func(arg)
+  
+  return function(input) {  // RETURN a function declaration 
+    
+    return func(arg, input) // RETURN the callback invoked with arg. additional arguments. 
+  
+  }
+  		
+  
+}
 
       function dateStamp(func, obj = {} ) {
   
