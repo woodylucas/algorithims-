@@ -236,26 +236,33 @@ changeScene('quick', 'slow');
 console.log(changeScene('The quick, brown fox jumps over the lazy dogs.')); // => should log 'The slow, brown fox jumps over the lazy cats.'
 
 
-function cycleIterator(arr, index = 0) {
-  return function() {
-    let incrementor = arr[index++];
-    
-    if(index >= arr.length) index = 0;
-    
-    return incrementor; 
-  }
+// CHALLENGE 9
+function cycleIterator(array) { // DECLARE a function declaration: cycleIterator
+  
+  // INPUT: argument will be an arary --> Parameter name is an array.
+  
+  let index = 0;// DECLARE a variable index initialize to zero
+  
+  	return function() {  // RETURN a function declaration --> zero arguments.
+      
+      const increment = array[index++]; // DECLARE a constant variable increment initialize to array with index incrementing with a unary operator. index++
+      
+      // IF index is GREATER than or EQUAL to array.length 
+      
+      if(index >= array.length) index = 0; 	// SET index to zero
+      return increment;
+    }
+  	
 }
 
-// PSEUDOCODE 
-// DECLARE a function: cycleIterator 
-// INPUT: arr 
-// DECLARE a variable: index set to 0.
-// USE index as an incremementor. arr[index++]
-// RETURN a function declaration.
-// RETURN a specfic element will call on it's invocation. Ex. () -> arr[0]
-// IF the index is greater than or equal to the length of the array. 
-// SET index equal to zero --> So it's basically used as a restarting point.
-// RETURN incrementor 
+// /*** Uncomment these to check your work! ***/
+// const threeDayWeekend = ['Fri', 'Sat', 'Sun'];
+// const getDay = cycleIterator(threeDayWeekend);
+// console.log(getDay()); // => should log 'Fri'
+// console.log(getDay()); // => should log 'Sat'
+// console.log(getDay()); // => should log 'Sun'
+// console.log(getDay()); // => should log 'Fri'
+
 
 
 // CHALLENGE 8
