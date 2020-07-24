@@ -468,3 +468,22 @@ function collectStrings(obj, newArr = []) {
 // ELSE collectStrings(obj[key])
 
 // RETURN Empty Array: newArr.
+
+// Challenge 2
+function sum(array) {
+    //base case: if array.length ==1 ; return 0
+      if(array.length == 0) return 0;
+    // declare var el = array[0];
+      let el = array[0];
+    //recursive case: el + sum(array.slice(1))
+      return el+sum(array.slice(1));
+    }
+    
+    // 1 + sum([1, 1, 1])
+    // 	1 + sum([1, 1])
+    
+    
+    // uncomment these to check your work
+     // console.log(sum([1,1,1])); // -> returns 3
+     // console.log(sum([1,2,3,4,5,6])); // -> returns 21
+    
