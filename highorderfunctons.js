@@ -78,14 +78,29 @@ function reduce(array, callback, initialValue) {
 
 
 // Challenge 7
-function intersection(arrays) {
-  return reduce(arrays, function(acc, curr) {
-    return acc.filter(elem => curr.includes(elem));
-  })
-}
+// DECLARE a function intersection()
+function intersection(arr) { // Input: argument is an array: Parameters: arr. 
+  // Use a reduce method: to REDUCE the size of an array 
+  // Acc will be the first element in the array. 
+	// CurrVal will be the second element, and the next
+  
+  return arr.reduce((acc, currVal) => { // Input: accumulator, current value -> acc, currVal
+    
+    // FILTER: a new array w/ the condition that results to true.
+    
+    // Filter the elements out of accumulator
+    
+    return acc.filter(elem => currVal.includes(elem)) // IF currVal INCLUDES the elements that were in the accumulator those elements will be in the new array.
+  });
+};
 
-//console.log(intersection([ [5, 10, 15, 20], [15, 88, 1, 5, 7], [1, 10, 15, 5, 20] ]));
-// should log: [5, 15]
+
+
+// Uncomment these to check your work!
+// const arr1 = [5, 10, 15, 20];
+// const arr2 = [15, 88, 1, 5, 7];
+// const arr3 = [1, 10, 15, 5, 20];
+// console.log(intersection([arr1, arr2, arr3])); // should log: [5, 15]
 
 
 // Challenge 8
