@@ -176,15 +176,33 @@ console.log(objOfMatches(arr1, arr2, uppercaser)); // should log: { hi: 'HI', by
 
 
 // Challenge 10
-function multiMap(arrVals, arrCallbacks, obj = {}) {
-  for(let i = 0; i < arrVals.length; i++) {
-    obj[arrVals[i]] = arrCallbacks.map(elem => elem(arrVals[i]))
+// DECLARE a function multiMap()
+function multiMap(arrOfValues, arrOfFuncs) { // Input: arrOfValues, arrOfFuncs
+  const obj = {}; // Declare a const variable obj initialize to an empty {}.
+  
+  // FOR LOOP: 
+	// Set counter to 0.
+	// Break counter when it reaches the end of the array.
+	// Increment the counter 
+  for(let i = 0; i < arrOfValues.length; i++) {
+    let element = arrOfValues[i] // Declare a variable element initialize to specifc elements of arrOfValues 
+    
+    obj[element] = arrOfFuncs.map(func => func(element)) // Build an object that sets the element as its key initialize to w/ array method map on arrayOfFuncs invoking w/ arrOfValues.
   }
   return obj;
 }
 
-// console.log(multiMap(['catfood', 'glue', 'beer'], [function(str) { return str.toUpperCase(); }, function(str) { return str[0].toUpperCase() + str.slice(1).toLowerCase(); }, function(str) { return str + str; }]));
-//should log: { catfood: ['CATFOOD', 'Catfood', 'catfoodcatfood'], glue: ['GLUE', 'Glue', 'glueglue'], beer: ['BEER', 'Beer', 'beerbeer'] }
+		
+		
+	
+
+// Uncomment these to check your work!
+// function uppercaser(str) { return str.toUpperCase(); }
+// function capitalize(str) { return str[0].toUpperCase() + str.slice(1).toLowerCase(); }
+// function repeater(str) { return str + str; }
+// const items = ['catfood', 'glue', 'beer'];
+// const functions = [uppercaser, capitalize, repeater];
+// console.log(multiMap(items, functions)); // should log: { catfood: ['CATFOOD', 'Catfood', 'catfoodcatfood'], glue: ['GLUE', 'Glue', 'glueglue'], beer: ['BEER', 'Beer', 'beerbeer'] }
 
 
 // Challenge 11
