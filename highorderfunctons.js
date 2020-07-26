@@ -146,16 +146,33 @@ console.log(union([arr1, arr2, arr3])); // should log: [5, 10, 15, 88, 1, 7, 100
 
 
 // Challenge 9
-function objOfMatches(array1, array2, callback) {
-  const obj = {};
-  for(let i = 0; i < array1.length; i++) {
-    if(callback(array1[i]) === array2[i]) obj[array1[i]] = array2[i]
-  }
+// DECLARE a function objOfMatches 
+function objOfMatches(arr1, arr2, callback) { // Input: arr1, arr2, callback
+  
+  const obj = {}; // Declare a const variable obj initialize to an empty object. 
+  
+  // FOR LOOP: 
+	// Set counter to 0 
+	// Counter breaks when it reaches to the end of the array.
+	// Increment counter by 1. 
+  for(let i = 0; i < arr1.length; i++) {
+    let elem1 = arr1[i]; // Declare a variable elem1 initialize array 1 elements 
+    let elem2 = arr2[i]; // Declare a variable elem2 initialize array 2 elements
+    
+    if(callback(elem1) === elem2) { // IF callback invoked w/ an element from arr1, passed in as an argument corresponds w/ element in array2 
+      
+      obj[elem1] = elem2; // Set object key as array 1 element initialize to array 2 as the value  
+    }
+  };
   return obj;
 }
 
-//console.log(objOfMatches(['hi', 'howdy', 'bye', 'later', 'hello'], ['HI', 'Howdy', 'BYE', 'LATER', 'hello'], function(str) { return str.toUpperCase(); }));
-// should log: { hi: 'HI', bye: 'BYE', later: 'LATER' }
+
+// Uncomment these to check your work!
+const arr1 = ['hi', 'howdy', 'bye', 'later', 'hello'];
+const arr2 = ['HI', 'Howdy', 'BYE', 'later', 'HELLO'];
+function uppercaser(str) { return str.toUpperCase(); }
+console.log(objOfMatches(arr1, arr2, uppercaser)); // should log: { hi: 'HI', bye: 'BYE', hello: 'HELLO' }
 
 
 // Challenge 10
