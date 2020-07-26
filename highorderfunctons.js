@@ -299,17 +299,27 @@ console.log(groupBy(decimals, floored)); // should log: { 1: [1.3], 2: [2.1, 2.4
 
 
 // Challenge 16
-function goodKeys(obj, callback) {
-  let results = []
+// DECLARE a function goodKeys()
+function goodKeys(obj, callback) { // Input: object, callback
+  
+  const truthyArr = []; // Declare a const variable truthyArr initialize to an empty array.
+ 
+  // FOR IN LOOP: iterate through object 
+	// Declare const variable key in object
   for(const key in obj) {
-    if(callback(obj[key])) results.push(key)
+    
+    if(callback(obj[key]) === true) { // IF callback invoked w/ the value is true
+      
+      truthyArr.push(key) // PUSH key, and value inside array
+    } 
   }
-  return results;
+  return truthyArr; // RETURN truthyArr;
 }
 
-// /*** Uncomment these to check your work! ***/
-// const sunny = { mac: 'priest', dennis: 'calculating', charlie: 'birdlaw', dee: 'bird', frank: 'warthog' };
-// const startsWithBird = function(str) { return str.slice(0, 4).toLowerCase() === 'bird'; };
+
+// Uncomment these to check your work!
+// const sunny = { mac: 'priest', dennis: 'calculator', charlie: 'birdlaw', dee: 'bird', frank: 'warthog' };
+// function startsWithBird(str) { return str.slice(0, 4).toLowerCase() === 'bird'; };
 // console.log(goodKeys(sunny, startsWithBird)); // should log: ['charlie', 'dee']
 
 
