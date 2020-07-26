@@ -104,16 +104,29 @@ function intersection(arr) { // Input: argument is an array: Parameters: arr.
 
 
 // Challenge 8
-function union(arrays) {
-  const merge = reduce(arrays, function(acc, curr) {
-    return acc.concat(curr);
-  })
-  return merge.filter((elem, index) => merge.indexOf(elem) === index);
+// DECLARE a function union
+function union(arr) { // Input: arr
   
-}
+  const flatten = arr.flat() // Declare a const variable flatten initialize it to arr using the flat method to flatten the array.
+  
+ // RETURN  reduce method
+ return flatten.reduce((acc, currVal) => { // REDUCE: input acc, currVal, []
+   
+   // Accumulator is the final array. 
+   console.log(acc)
+   // Current Value is the elements in the array
+   
+   return acc.includes(currVal)  ? acc : [...acc, currVal] // Acc.includes(Current Value) only gets pushed into array when its true.
+   
+ }, []) // <-- initialValue.
+} 
+ 
 
-//console.log(union([ [5, 10, 15], [15, 88, 1, 5, 7], [100, 15, 10, 1, 5] ]));
-// should log: [5, 10, 15, 88, 1, 7, 100]
+// Uncomment these to check your work!
+const arr1 = [5, 10, 15];
+const arr2 = [15, 88, 1, 5, 7];
+const arr3 = [100, 15, 10, 1, 5];
+console.log(union([arr1, arr2, arr3])); // should log: [5, 10, 15, 88, 1, 7, 100]
 
 
 // Challenge 9
