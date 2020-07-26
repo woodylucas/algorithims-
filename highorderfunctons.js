@@ -56,25 +56,41 @@ function mapWith(array, callback) {
 
 
 // Challenge 6
-function reduce(array, callback, initialValue) {
-  let acc; 
-  if(initialValue === undefined){
-    acc = array[0]
-    array = array.slice(1);
-  } else {
-    acc = initialValue;
+// DECLARE a function: reduce 
+function reduce(arr, cb, initialVal) { // Input: array, function --> Parameters: arr, cb, initialVal
+ 
+  let acc; // Declare a variable acc
+  if(typeof initialVal === 'undefined') { // IF initialVal is undefined 
+    
+    acc = arr[0] // Set acc to the first element in the array 
+    
+    arr.slice(1) // Make a copy of the array and remove that first element.
+    
+  } else { // ELSE (if there is an initialVal) 
+    
+    acc = initialVal; // Set acc to initialVal
   }
   
-  for(let i = 0; i < array.length; i++) {
-    let curr = array[i];
-    acc = callback(acc, curr, i, array, initialValue)
-  };
-  return acc;
+  // FOR LOOP:
+	// Set counter to 0.
+	// Counter breaks as it reaches the end of the array.
+	// Increment counter by 1.
+  for(let i = 0; i < arr.length; i++) {
+    
+    let currVal = arr[i]; // Declare a variable currVal = array elements: array[i]
+    
+    acc = cb(acc, currVal, i, arr, initialVal) // Set acc to callback invoked w/ arguments acc, currVal, index, array, initialVal
+  }
+  return acc; // RETURN acc.
 }
 
- // const nums = [4, 1, 3];
- // const add = function(a, b) { return a + b; }
- // console.log(reduce(nums, add, 0)); // should log 8
+
+
+
+// Uncomment these to check your work!
+// const nums = [4, 1, 3];
+// const add = function(a, b) { return a + b; }
+// console.log(reduce(nums, add, 0)); // should log 8
 
 
 // Challenge 7
